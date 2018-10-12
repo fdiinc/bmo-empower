@@ -1,0 +1,7 @@
+<transformationConfiguration id="trans_depositDetails" >
+	<schemaIDs>trans_depositDetails</schemaIDs>
+	<styleURI>dds://DOMAIN=resource/xslt/deposits.xsl</styleURI>
+	<pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+	<xquery>expand.xml</xquery>
+	<pdf>false</pdf>
+</transformationConfiguration>

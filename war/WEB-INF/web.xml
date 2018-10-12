@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <listener>
+        <listener-class>com.emc.dds.xmlarchiving.server.LDMApplicationStarter</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.emc.documentum.xml.dds.servlet.SessionListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>CryptoServlet</servlet-name>
+        <servlet-class>com.emc.dds.xmlarchiving.server.service.CryptoServletImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BlobServlet</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.taglib.BlobServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>BlobDownloader</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.service.impl.BlobDownloader</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UnzipBlobServlet</servlet-name>
+        <servlet-class>com.emc.dds.xmlarchiving.server.UnzipBlobServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ProcessRendererServlet</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.servlet.le.ProcessRendererServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>XProcServlet</servlet-name>
+        <servlet-class>com.flatironssolutions.decomm.servlet.xproc.XProcServletWrapper</servlet-class>
+        <!-- <servlet-class>com.emc.documentum.xml.dds.servlet.xproc.XProcServlet</servlet-class> -->
+    </servlet>
+    
+    <!-- BlobDownloader -->
+
+    <servlet-mapping>
+        <servlet-name>CryptoServlet</servlet-name>
+        <url-pattern>/bmoempower/Crypto</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BlobServlet</servlet-name>
+        <url-pattern>/bmoempower/BlobServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>BlobDownloader</servlet-name>
+        <url-pattern>/bmoempower/BlobDownloader</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UnzipBlobServlet</servlet-name>
+        <url-pattern>/bmoempower/UnzipBlobServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ProcessRendererServlet</servlet-name>
+        <url-pattern>/bmoempower/ProcessRendererServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>XProcServlet</servlet-name>
+        <url-pattern>/bmoempower/XProcServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- GWT services -->
+
+    <servlet>
+        <servlet-name>LDMService</servlet-name>
+        <servlet-class>com.emc.dds.xmlarchiving.server.service.LDMServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UserInfoService</servlet-name>
+        <servlet-class>com.emc.dds.xmlarchiving.server.service.UserInfoServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>I18NService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.I18NServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LogCenterService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.LogCenterServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ApplicationService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.application.ApplicationServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UserService</servlet-name>
+        
+        <!-- Use this service if using the smauth.jar feature -->
+        <!--
+                     <servlet-class>com.emc.dds.xmlarchiving.server.auth.LDAPTokenUserGWTServiceDelegate</servlet-class>
+        -->
+        <servlet-class>com.emc.dds.xmlarchiving.server.auth.XMLArchivingUserGWTServiceDelegate</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ResourceService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.gwt.server.ResourceServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PersistenceService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.persistence.PersistenceServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>XMLPersistenceService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.persistence.XMLPersistenceServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>IndexService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.xdb.index.IndexServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>XQueryService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.xquery.XQueryServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>XProcService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.xproc.XProcServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LogicEngineService</servlet-name>
+        <servlet-class>com.emc.documentum.xml.dds.gwt.server.le.LogicEngineServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RoleService</servlet-name>
+        <servlet-class>com.emc.dds.xmlarchiving.server.service.RoleServiceImpl</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LDMService</servlet-name>
+        <url-pattern>/bmoempower/LDMService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserInfoService</servlet-name>
+        <url-pattern>/bmoempower/UserInfoService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>I18NService</servlet-name>
+        <url-pattern>/bmoempower/I18NService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LogCenterService</servlet-name>
+        <url-pattern>/bmoempower/LogCenterService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ApplicationService</servlet-name>
+        <url-pattern>/bmoempower/ApplicationService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UserService</servlet-name>
+        <url-pattern>/bmoempower/UserService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ResourceService</servlet-name>
+        <url-pattern>/bmoempower/ResourceService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PersistenceService</servlet-name>
+        <url-pattern>/bmoempower/PersistenceService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>XMLPersistenceService</servlet-name>
+        <url-pattern>/bmoempower/XMLPersistenceService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>IndexService</servlet-name>
+        <url-pattern>/bmoempower/IndexService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>XQueryService</servlet-name>
+        <url-pattern>/bmoempower/XQueryService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>XProcService</servlet-name>
+        <url-pattern>/bmoempower/XProcService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LogicEngineService</servlet-name>
+        <url-pattern>/bmoempower/LogicEngineService</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RoleService</servlet-name>
+        <url-pattern>/bmoempower/RoleService</url-pattern>
+    </servlet-mapping>
+
+	<!-- Filters -->
+
+  <filter>
+    <filter-name>gwtCacheControlFilter</filter-name>
+    <filter-class>com.emc.dds.xmlarchiving.server.filter.GwtCacheControlFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>gwtCacheControlFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+    <!-- Setting application session timeout to 15 minutes to match what looks to be an internal DDS timeout of 15 minutes. -->
+    <!-- WARNING: 500 errors occur when timeout is 30 minutes. -->
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
+    
+</web-app>

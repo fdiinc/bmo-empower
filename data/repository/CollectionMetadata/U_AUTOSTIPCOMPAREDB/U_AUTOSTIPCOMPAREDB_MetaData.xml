@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_AUTOSTIPCOMPAREDB"><RECORD-COUNT>4</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_AUTOSTIPCOMPAREDB-TYPE><NAME>CHECKDBID</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_AUTOSTIPCOMPAREDB-TYPE><U_AUTOSTIPCOMPAREDB-TYPE><NAME>CHECKDBDESC</NAME><COLNO>2</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_AUTOSTIPCOMPAREDB-TYPE></DATATYPES><KEYS><U_AUTOSTIPCOMPAREDB-KEY><NAME>CheckDbId</NAME><CONSTRAINT_NAME>PK_U_AutoStipCompareDb</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_AUTOSTIPCOMPAREDB-KEY></KEYS><INDEXES><U_AUTOSTIPCOMPAREDB-INDEX><NAME>PK_U_AutoStipCompareDb</NAME><COLUMN_NAME>CheckDbId</COLUMN_NAME></U_AUTOSTIPCOMPAREDB-INDEX></INDEXES></TABLEMETADATA>

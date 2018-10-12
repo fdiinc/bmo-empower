@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_AUDITTYPE"><RECORD-COUNT>47</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_AUDITTYPE-TYPE><NAME>DBNUM</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_AUDITTYPE-TYPE></DATATYPES><KEYS><U_AUDITTYPE-KEY><NAME>dbnum</NAME><CONSTRAINT_NAME>PK_U_AuditType</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_AUDITTYPE-KEY></KEYS><INDEXES><U_AUDITTYPE-INDEX><NAME>PK_U_AuditType</NAME><COLUMN_NAME>dbnum</COLUMN_NAME></U_AUDITTYPE-INDEX></INDEXES></TABLEMETADATA>

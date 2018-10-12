@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="FORMSTAT"><RECORD-COUNT>376</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><FORMSTAT-TYPE><NAME>FORMNAME</NAME><COLNO>1</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></FORMSTAT-TYPE><FORMSTAT-TYPE><NAME>FORMTYPE</NAME><COLNO>2</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></FORMSTAT-TYPE><FORMSTAT-TYPE><NAME>DESCRIPTION</NAME><COLNO>3</COLNO><DATATYPE>varchar(60)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></FORMSTAT-TYPE></DATATYPES><KEYS><FORMSTAT-KEY><NAME>FORMNAME</NAME><CONSTRAINT_NAME>PK_FORMSTAT</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></FORMSTAT-KEY></KEYS><INDEXES><FORMSTAT-INDEX><NAME>PK_FORMSTAT</NAME><COLUMN_NAME>FORMNAME</COLUMN_NAME></FORMSTAT-INDEX></INDEXES></TABLEMETADATA>

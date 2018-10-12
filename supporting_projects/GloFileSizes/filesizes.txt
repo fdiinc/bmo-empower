@@ -1,0 +1,7 @@
+/code/bmo-workspace/GLO_Image_Metadata/.project	377
+/code/bmo-workspace/GLO_Image_Metadata/src/Glo_Metadata.java	2842
+/code/bmo-workspace/GLO_Image_Metadata/bin/Glo_Metadata.class	2937
+/code/bmo-workspace/GLO_Image_Metadata/.settings/org.eclipse.jdt.core.prefs	587
+/code/bmo-workspace/GLO_Image_Metadata/.classpath	295
+/code/bmo-workspace/GLO_Image_Metadata/resources/paths.txt	2147
+/code/bmo-workspace/GLO_Image_Metadata/deploy/glometadata.jar	2032

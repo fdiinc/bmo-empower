@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<purgeQuery>
+  <name>GLO</name>
+<!-- ********************** QUERY ************************************************** -->
+  <query>
+ <![CDATA[  
+declare function local:process-tables($tableList , $loans, $purge-date )
+   as element() {
+
+let $seqSize := 10000
+let $seqCount:= floor(number(count($loans)) div $seqSize)
+
+let $loanNumbers := 
+<LOAN-NUMBERS>
+{
+for $a in 0 to xs:int($seqCount)
+	return <LOAN-GROUP>{ for $a in (subsequence($loans, ($a * $seqSize+ 1), $seqSize)) return <LOAN>{$a}</LOAN>}</LOAN-GROUP>
+}
+</LOAN-NUMBERS>
+
+
+let $results := 
+	for $group in $loanNumbers/*
+			for $table in $tableList
+				 let $tableRow := concat($table, "-ROW")
+			     let $rows := doc(concat('/DATA/bmoempower/Collection/', $table,'/'))/*[local-name() = $table]/*[local-name() = $tableRow and LNKEY = ($group/LOAN)]	
+			return $rows
+       return <PURGE-RESULTS><PURGE-DATE>{$purge-date}</PURGE-DATE><LOAN-COUNT>{count($loans)}</LOAN-COUNT><DELETED-RECORD-COUNT>{count($results)}</DELETED-RECORD-COUNT></PURGE-RESULTS>      
+};
+
+
+
+
+(: Calculate the purge date :)
+
+let $purge-years := 7
+let $wire-purge-years := 37
+
+let $current-year := substring(xs:string(current-date()),1,4)
+
+let $purge-year := xs:integer($current-year) - $purge-years
+
+let $purge-date := concat($purge-year, substring(xs:string(current-date()),5,6) ) 
+
+let $wire-purge-year := xs:integer($current-year) - $wire-purge-years
+
+let $wire-purge-date := concat($wire-purge-year, substring(xs:string(current-date()),5,6) ) 
+
+ 
+
+ 
+
+(: Determine the funded loan numbers :)
+
+let $fundedLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[APPSTATN='59']
+
+                                let $mtgtermRow := doc('/DATA/bmoempower/Collection/MTGTERMS')/MTGTERMS/MTGTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                let $uwireRow := doc('/DATA/bmoempower/Collection/U_WIRE')/U_WIRE/U_WIRE-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                return <Loan>{($codeRow, $mtgtermRow, $uwireRow)}</Loan>
+
+let $fundedLoansMaturity := $fundedLoans[string-length(MTGTERMS-ROW/MATURITYDATE) > 0 and MTGTERMS-ROW/MATURITYDATE  <= $purge-date ]/MTGTERMS-ROW/LNKEY 
+
+let $fundedLoansWire := $fundedLoans[string-length(MTGTERMS-ROW/MATURITYDATE) = 0 and string-length(U_WIRE-ROW/WIRE_DT ) > 0 and U_WIRE-ROW/WIRE_DT   <= $wire-purge-date ]/CODES-ROW/LNKEY
+
+(: can U_WIRE.WIRE_DT be empty??? :)
+
+ 
+
+let $fundedLoansToPurge := <DATA> <FUNDED-MATURITY>{$fundedLoansMaturity}</FUNDED-MATURITY><FUNDED-WIRE>{ $fundedLoansWire} </FUNDED-WIRE> </DATA>
+
+ 
+
+ 
+
+ 
+
+(: Determine the Declined Loan Numbers :)
+
+let $declinedLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[APPSTATN = ('27', '28', '29', '34', '44') ] 
+
+                                                let $evntdateRow := doc('/DATA/bmoempower/Collection/EVNTDATE')/EVNTDATE/EVNTDATE-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                                let $dblocksRow := doc('/DATA/bmoempower/Collection/DBLOCKS')/DBLOCKS/DBLOCKS-ROW[LNKEY = $codeRow/LNKEY ]
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $evntdateRow, $dblocksRow,$umisctermsrow)}</Loan>
+
+ 
+
+let $declinedLoansEventDate :=
+
+               $declinedLoans[string-length(EVNTDATE-ROW/DENIED) > 0 and EVNTDATE-ROW/DENIED  <= $purge-date]/CODES-ROW/LNKEY
+
+ 
+
+let $declinedDblocksDate :=
+
+                $declinedLoans[ string-length(EVNTDATE-ROW/DENIED) = 0 and string-length(DBLOCKS-ROW/USER2KEY) > 0 and DBLOCKS-ROW/USER2KEY  <= $purge-date]/CODES-ROW/LNKEY
+
+ 
+
+let $declinedMiscTermsDate :=
+
+                $declinedLoans[string-length(EVNTDATE-ROW/DENIED) = 0 and string-length(DBLOCKS-ROW/USER2KEY ) = 0  and string-length(U_MISCTERMS-ROW/APP_RECD_DATE) > 0 ]/CODES-ROW/LNKEY
+
+ 
+
+(: can U_MISCTERMS-ROW/APP_RECD_DATE be empty??? :)
+
+ 
+
+let $declinedLoansToPurge := <DATA> <DECLINED-EVENTDATE>{$declinedLoansEventDate}</DECLINED-EVENTDATE><DECLINED-BLOCKSDATE>{$declinedDblocksDate}</DECLINED-BLOCKSDATE><DECLINED-MISCTERMSDATE>{$declinedMiscTermsDate}</DECLINED-MISCTERMSDATE> </DATA>
+
+ 
+
+ 
+
+ 
+
+(: Determine the Withdrawn Loan Numbers :)
+
+let $withdrawnLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[APPSTATN = ('26', '35', '41', '60', '73') ] 
+
+                                                let $evntdateRow := doc('/DATA/bmoempower/Collection/EVNTDATE')/EVNTDATE/EVNTDATE-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                                let $dblocksRow := doc('/DATA/bmoempower/Collection/DBLOCKS')/DBLOCKS/DBLOCKS-ROW[LNKEY = $codeRow/LNKEY ]
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $evntdateRow, $dblocksRow,$umisctermsrow)}</Loan>
+
+ 
+
+let $withdrawnLoansEventDate :=
+
+                $withdrawnLoans[ string-length(EVNTDATE-ROW/WITHDRAWN) > 0 and EVNTDATE-ROW/WITHDRAWN   <= $purge-date]/CODES-ROW/LNKEY
+
+ 
+
+let $withdrawnMiscTermsDate :=
+
+                $withdrawnLoans[ string-length(EVNTDATE-ROW/WITHDRAWN) = 0 and string-length(U_MISCTERMS-ROW/WITHDRAWN_DATE ) > 0  and U_MISCTERMS-ROW/WITHDRAWN_DATE <= $purge-date ]/CODES-ROW/LNKEY
+
+ 
+
+let $withdrawnDblocksDate :=
+
+                $withdrawnLoans[ string-length(EVNTDATE-ROW/WITHDRAWN) = 0 and string-length(U_MISCTERMS-ROW/WITHDRAWN_DATE ) = 0  and string-length(DBLOCKS-ROW/USER2KEY) > 0 and DBLOCKS-ROW/USER2KEY <= $purge-date ]/CODES-ROW/LNKEY
+
+ 
+
+let $withdrawnMisctermsAppRecdDate :=
+
+                $withdrawnLoans[ string-length(EVNTDATE-ROW/WITHDRAWN) = 0 and string-length(U_MISCTERMS-ROW/WITHDRAWN_DATE ) = 0  and string-length(DBLOCKS-ROW/USER2KEY ) = 0  and string-length(U_MISCTERMS-ROW/APP_RECD_DATE) > 0 and U_MISCTERMS-ROW/APP_RECD_DATE <= $purge-date ]/CODES-ROW/LNKEY
+
+ 
+
+ 
+
+(: can U_MISCTERMS-ROW/APP_RECD_DATE be empty??? :)
+
+ 
+
+let $withdrawnLoansToPurge := <DATA><WITHDRAWN-EVENT-DATE>{$withdrawnLoansEventDate}</WITHDRAWN-EVENT-DATE>
+        <WITHDRAWN-DBLOCKSDATE>{$withdrawnDblocksDate}</WITHDRAWN-DBLOCKSDATE> 
+        <WITHDRAWN-MISCTERMSDATE>{$withdrawnMiscTermsDate}</WITHDRAWN-MISCTERMSDATE> 
+        <WITHDRAWN-MISCTERMSRECDDATE>{$withdrawnMisctermsAppRecdDate}</WITHDRAWN-MISCTERMSRECDDATE>
+        </DATA>
+ 
+
+ 
+
+ 
+
+(: Determine the other Code loans to purge :)
+
+let $otherLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[not(APPSTATN = ('59', '27', '28', '29', '34', '44', '26', '35', '41', '60', '73') ) ] 
+
+                                                let $evntdateRow := doc('/DATA/bmoempower/Collection/EVNTDATE')/EVNTDATE/EVNTDATE-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                                let $dblocksRow := doc('/DATA/bmoempower/Collection/DBLOCKS')/DBLOCKS/DBLOCKS-ROW[LNKEY = $codeRow/LNKEY ]
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $evntdateRow, $dblocksRow,$umisctermsrow)}</Loan>
+
+ 
+
+let $otherMisctermsAppRecdDate :=
+
+                $otherLoans[  string-length(CODES-ROW/APPSTATN) > 0 and string-length(U_MISCTERMS-ROW/APP_RECD_DATE) > 0 and U_MISCTERMS-ROW/APP_RECD_DATE <= $purge-date ]/CODES-ROW/LNKEY
+
+ 
+
+(: can U_MISCTERMS-ROW/APP_RECD_DATE be empty??? :)
+
+ 
+
+let $otherLoansToPurge := distinct-values($otherMisctermsAppRecdDate)
+
+ 
+
+ 
+
+ 
+
+(: Determine the Abandoned loans to purge :)
+
+ 
+
+let $abandonedLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[string-length(APPSTATN) = 0 ] 
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $umisctermsrow)}</Loan>
+
+ 
+
+let $abandonedLoansToPurge :=
+
+                $abandonedLoans[ string-length(U_MISCTERMS-ROW/APP_RECD_DATE) = 0  ]/U_MISCTERMS-ROW/LNKEY
+
+ 
+
+ 
+
+ 
+
+(: Determine the No Underwriting Loans to purge :)
+
+ 
+
+ 
+
+let $noUnderwritingLoans :=
+
+               subsequence( for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[string-length(APPSTATN) = 0 ] 
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $umisctermsrow)}</Loan>
+,1,10)
+
+ 
+
+let $noUnderwritingLoansToPurge :=
+
+                $noUnderwritingLoans[ string-length(U_MISCTERMS-ROW/APP_RECD_DATE) > 0 and U_MISCTERMS-ROW/APP_RECD_DATE <= $purge-date ]/U_MISCTERMS-ROW/LNKEY
+
+ 
+
+ 
+
+ 
+
+
+return 
+
+let $allLoans := distinct-values(($fundedLoansToPurge//LNKEY, $declinedLoansToPurge//LNKEY, $withdrawnLoansToPurge//LNKEY, $otherLoansToPurge//LNKEY, $abandonedLoansToPurge//LNKEY, $noUnderwritingLoansToPurge//LNKEY) )
+
+(: now delete any loans that are in the HOLDS table :)
+(: Get the held loans :)
+let $holdLoans := doc('/DATA/HOLDS/')/HOLDS/HOLDS-ROW/LNUM
+
+(: filter them out of the results :)
+let $allLoans := $allLoans[ not(. = $holdLoans) ]
+
+(: Now go through all tables in the list and delete records with any of the affected loan numbers. 
+This iteration does NOT include the key loan tables.  This ensures that if a failure/restart occurs we can still find all the loans to be 
+purged and restart the process.  The key tables are deleted separately after all the related table records are purged
+:)
+
+let $purgeTables := ("ALIMONY", "APPINTELL", "ARMDISC", "AUTO_OWN", "BORRINFO", "BORRMTRX", "BORRVESTINGSTRUCT", "CALC", "CALC100", "CALC101", "CBRDATA", "CBRHISTORY", "CBRSTAT", "CDU_EXTENDED", "CHKSAV", "CONSDATA", "CREDHIST", "CREDRPTS", "CREDSCORE", "CREDSTATUS", "CURRADDR", "CURREMPL", "DEBTS", "DECLARES", "DEEDDATA", "DEEDDATA2", "DEPPURCH", "DOCGEN", "DOCGEN3", "DOCMEMO1", "DOCMEMO3", "DOC_ETC", "DUFINDINGSDOCLVLS", "DUFINDINGSMAIN", "DUFINDINGSMSGDTL", "DUFINDINGSMSGMAIN", "DUFINDINGSSFCODES", "DURESULT", "DU_HIST_RESULTS", "ESS_UNLOCKLOANHIST", "EVALPLAN", "EVENTS", "FACT_ACT", "FANNIEDU", "FEECATS", "FEES", "FG_ADJUSTMENTS", "FG_REDFLAGS", "FHACALC5", "FHAVACLC", "FHA_TRANS_SUMM", "FIELDPROPERTIES", "FLOOD", "FORMADDR", "FRAUDGUARD", "FRAUD_ALT", "FRAUD_ALT_ALERT", "GFEDATA", "GFEFEEHIST", "GFEFEEHISTDETAIL", "GFEFEES", "GFETRADEOFF", "GINNIE", "GOVFHA", "GOVFHAVA", "GOVTDOCS", "GOVVA", "HUD1A_15", "HUDAPP", "HUDARR10", "HUD_DOCS", "INCOME", "INITESCROW", "INITESCROW50", "INTRM_AMSCHED", "INTRM_BILLPROC", "INTRM_PAYPOST", "INTRM_SERV", "INTRVIEW", "ITEM_DOC", "JOB_EXP", "JUDGELIENS", "LOANHIST", "LOGPRINTDOC", "LPBORR", "LPCAIVRS", "LPCONTCT", "LPFHAVA", "LPLOAN", "LPPROPTY", "MARKET", "MERSDATA", "MIDANET", "MISCASST", "MI_PREMIUMS", "MI_RENEWALS", "MORNET", "MORTINS", "MTGTERMS", "NOTEEXP", "NOTEMEMO", "NOTEPAD", "OTHRINCOME", "OTHRINFO", "OTH_ASST", "OVERRIDE", "PLANDAT", "PLANDAT3", "PLANDAT6", "PRESMHE", "PRES_MHE", "PREV_EMP", "PRICADJ", "PRICESTATUS", "PRICESTIPS1", "PRICETBL", "PROPCNST", "PROPINFO", "PROPREFI", "PROVIDERS", "RATIOS", "RDXCOMNT2", "RDXCOMNT5", "RDXCOMNT6", "RDXCOMNT7", "REGULAT", "REGULAT4", "RE_OWNED", "RLADDRS", "RLDEBTS", "RLEMPLS", "ROLODEX", "SECMORT_NOTE", "SNAPSHOT", "STAMPTIME", "STOCKS", "TAXDOCS", "TBLAUTOWITHDRAWHIST", "TBLCATCHACCESSUPDATEROWS", "TBLDAILYACTIVITYRATELOCKPRICEDETAIL", "TBLHMDASELFMONLISTBASE", "TBLLOANSTOGATHER", "TBLREGBDETAIL", "TBLREPRINTINCOMPLETES", "TBLTOUCHESBYBROKER", "TBLTOUCHESBYBROKERYRROLL", "TILDATA", "TRANSUMM", "UCODES", "UCODES2", "UCODES3", "UCODES4", "URLADD", "URLADD10", "URLADD3", "URLADD6", "URLASPEC", "URLA_DETAILS", "U_4506T", "U_AFFORDABLE_SECONDS", "U_APPRAISALS", "U_APPRAISAL_ANALYSIS", "U_APPROVALS", "U_APPROVAL_COVER_LETTER", "U_APP_DEPOSIT_DISPOSITION", "U_APR_FEE_RESULTS", "U_ASSIGNMENTS", "U_AUTOSTIPRETAIL", "U_AUTOSTIP_TEST_RES", "U_BORRMTRX", "U_BORR_VEST", "U_BROKERSTATEDFEES", "U_BULLET_CRIT_TEMP", "U_BULLET_LN", "U_CHECKLISTS_ADDLDATA", "U_CHECKLISTS_ITEMS", "U_CHECKLISTS_MANUAL_ITEMS", "U_CHECKORDERS", "U_CLOSINGINFO", "U_CLOSINGINFO2", "U_CLOSINGINFO_LEGAL", "U_CLOSINGPAYOFFS", "U_CLOSINGRESERVATION", "U_COMPLIANCE_CAPTURE", "U_CONDITIONS", "U_COND_TEMP", "U_CONSTRUCTIONLNS", "U_COUNTER", "U_CREDHIST_TEMP", "U_CREDITGRADE", "U_CREDITSCORE", "U_CREDIT_SUMM", "U_DEBTS_TEMP", "U_DEBT_CHANGES", "U_DEBT_DELINQUENCY", "U_DEBT_MCONV", "U_DEBT_RATINGS", "U_DEBT_SUMM", "U_DEBT_TLU", "U_DEBT_VARIANCE", "U_DECLINE_REASONS", "U_DECL_REAS_PRINTED", "U_DEFICIENCIES_LOG", "U_DOCS", "U_DYNAFORM_POLICY_PROC_LOG", "U_EMAIL_QUEUE", "U_ESCROW_AGREEMENT", "U_EXCEPTIONTRACKING", "U_EXCEPTIONTRACKINGMKTCR", "U_EXTRANET", "U_FEES_ADDENDUM", "U_FLOOD_INS_WKSHT", "U_FRAUD", "U_FRAUD_CONFIRMED", "U_FRAUD_CONFIRMED_HISTORY", "U_FRAUD_HISTORY", "U_FRAUD_SUSPECT", "U_FRAUD_SUSPECT_HISTORY", "U_GFE", "U_GFECHANGEDCIRCUMSTANCE", "U_GFEFEEHISTDETAIL_NS", "U_GFEFEEHIST_NS", "U_GFEFEEREVIEWHISTDETAIL", "U_GFELOANDATAHIST", "U_GFE_HUD_RECONCILE", "U_GFE_HUD_RECONCIL_DETAIL", "U_GFE_THIRDPARTY", "U_HMDA", "U_HMDA_COMMENTS", "U_HMDA_DECERTS", "U_HMDA_SELF_MON", "U_HMDA_VALIDATIONS", "U_IMAGELITETOPDF_QUE", "U_IMAGEOUTPUT_LIST", "U_INCOME_COMMENTS", "U_INCOME_HOUSEHOLD", "U_INTRM_DISBURSEMENTS", "U_INTRM_SERV_ARCHIVE", "U_INVESTOR", "U_INVESTOR_SALES", "U_JUDGELIENS_TEMP", "U_JUDGE_SUMM", "U_LDPGSA", "U_LENDER", "U_LENDER_CONFIG", "U_LOCATION", "U_MARITAL_PROP", "U_MIFLEX_LTVADJ_TEMP", "U_MIFLEX_PRICEADJ_TEMP", "U_MIFLEX_PRODTYPE_TEMP", "U_MISCMEMO_1", "U_MISCTERMS2", "U_MISCTERMS3", "U_MISCTERMS4", "U_MI_EMPLOYEE_FROM", "U_NAME_AFFIDAVIT", "U_NOTIFICATIONS", "U_NTB_DATA", "U_NTB_EVALS", "U_ONBASE", "U_PF_CONTACT_HIST", "U_PRICEADJ", "U_PRICEADJ_MANUAL", "U_PROJECT", "U_PST", "U_QRPREFUNDADDONS", "U_QRPREFUNDRESPONSES", "U_QRRESPONSES", "U_QRTIMES", "U_RATELOCKS", "U_RATELOCKS_INVESTOR", "U_RATELOCKS_RIGID", "U_RATE_PRICE_MATRIX_COL", "U_RATE_PRICE_MATRIX_SEL", "U_RATE_PRICE_SELECTED", "U_RATIOS", "U_REFI_TYPE", "U_RELEASES", "U_REPRICEORIDES_TEMP", "U_REPRICE_ARRAY", "U_REPRICE_TEMP", "U_RESUBS", "U_STAMPTIME", "U_STAMPTIME2", "U_STAMPTIME_DELETED", "U_STAMPTIME_TEMP", "U_SUBORDINATIONS", "U_TAXES_WORKSHEET", "U_TEMP_PRICADJ", "U_THREEDAYPKG", "U_TIMEINLOAN", "U_TRACKING", "U_TRACK_DOCS", "U_TRACK_TRADES", "U_TRADEDEPTH_SUMM", "U_TRANSFERS", "U_UDM_TRACKING", "U_UNLOCK_TRACKING", "U_UPLOADILSWIRES", "U_UPLOADOSIWIRES", "U_VA_RACOLD", "U_UPLOADUSERMAINTLOG", "U_USDA_INCOME_WORKSHEET", "U_VA_ADDITIONAL_INFO", "U_WHAT_IF_DEBTS", "U_WHAT_IF_INCOME", "U_WHAT_IF_MISC", "U_WIRE", "U_WITHDRAW_TRACKING", "U_XML_DATAFILES", "VA_FHA_ANALS", "VA_LOAN_SUMM", "VA_LOAN_SUM_BS", "VESTINGINFO", "WORKFLOW")
+
+let $relatedTablePurge := local:process-tables($purgeTables, $allLoans, $purge-date)
+let $purgeTables := ("CODES", "DBLOCKS", "EVNTDATE", "U_MISCTERMS" )
+let $keyTablePurge := local:process-tables($purgeTables, $allLoans, $purge-date)
+
+let $totalRecordCount := sum( ($relatedTablePurge, $keyTablePurge)//DELETED-RECORD-COUNT )
+(:
+return <PROCESS-RESULTS><RELATED-TABLE-PURGE>{$relatedTablePurge}</RELATED-TABLE-PURGE><KEY-TABLE-PURGE>{$keyTablePurge}</KEY-TABLE-PURGE></PROCESS-RESULTS>
+:)
+
+return concat($purge-date, "~", $totalRecordCount)
+
+]]>
+  </query>
+	
+<!-- ************************ DELETE *********************************************** -->
+  <purgeXquery>    
+<![CDATA[
+declare updating function local:process-tables($tableList , $loans, $purge-date )
+  {
+
+let $seqSize := 10000
+let $seqCount:= floor(number(count($loans)) div $seqSize)
+
+let $loanNumbers := 
+<LOAN-NUMBERS>
+{
+for $a in 0 to xs:int($seqCount)
+	return <LOAN-GROUP>{ for $a in (subsequence($loans, ($a * $seqSize+ 1), $seqSize)) return <LOAN>{$a}</LOAN>}</LOAN-GROUP>
+}
+</LOAN-NUMBERS>
+
+
+let $results := 
+	for $group in $loanNumbers/*
+			for $table in $tableList
+				 let $tableRow := concat($table, "-ROW")
+			     let $rows := doc(concat('/DATA/bmoempower/Collection/', $table,'/'))/*[local-name() = $table]/*[local-name() = $tableRow and LNKEY = ($group/LOAN)]	
+			return $rows
+    return delete nodes $results       
+};
+
+
+
+
+(: Calculate the purge date :)
+
+let $purge-years := 7
+let $wire-purge-years := 37
+
+let $current-year := substring(xs:string(current-date()),1,4)
+
+let $purge-year := xs:integer($current-year) - $purge-years
+
+let $purge-date := concat($purge-year, substring(xs:string(current-date()),5,6) ) 
+
+let $wire-purge-year := xs:integer($current-year) - $wire-purge-years
+
+let $wire-purge-date := concat($wire-purge-year, substring(xs:string(current-date()),5,6) ) 
+
+ 
+
+ 
+
+(: Determine the funded loan numbers :)
+
+let $fundedLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[APPSTATN='59']
+
+                                let $mtgtermRow := doc('/DATA/bmoempower/Collection/MTGTERMS')/MTGTERMS/MTGTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                let $uwireRow := doc('/DATA/bmoempower/Collection/U_WIRE')/U_WIRE/U_WIRE-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                return <Loan>{($codeRow, $mtgtermRow, $uwireRow)}</Loan>
+
+let $fundedLoansMaturity := $fundedLoans[string-length(MTGTERMS-ROW/MATURITYDATE) > 0 and MTGTERMS-ROW/MATURITYDATE  <= $purge-date ]/MTGTERMS-ROW/LNKEY 
+
+let $fundedLoansWire := $fundedLoans[string-length(MTGTERMS-ROW/MATURITYDATE) = 0 and string-length(U_WIRE-ROW/WIRE_DT ) > 0 and U_WIRE-ROW/WIRE_DT   <= $wire-purge-date ]/CODES-ROW/LNKEY
+
+(: can U_WIRE.WIRE_DT be empty??? :)
+
+ 
+
+let $fundedLoansToPurge := <DATA> <FUNDED-MATURITY>{$fundedLoansMaturity}</FUNDED-MATURITY><FUNDED-WIRE>{ $fundedLoansWire} </FUNDED-WIRE> </DATA>
+
+ 
+
+ 
+
+ 
+
+(: Determine the Declined Loan Numbers :)
+
+let $declinedLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[APPSTATN = ('27', '28', '29', '34', '44') ] 
+
+                                                let $evntdateRow := doc('/DATA/bmoempower/Collection/EVNTDATE')/EVNTDATE/EVNTDATE-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                                let $dblocksRow := doc('/DATA/bmoempower/Collection/DBLOCKS')/DBLOCKS/DBLOCKS-ROW[LNKEY = $codeRow/LNKEY ]
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $evntdateRow, $dblocksRow,$umisctermsrow)}</Loan>
+
+ 
+
+let $declinedLoansEventDate :=
+
+               $declinedLoans[string-length(EVNTDATE-ROW/DENIED) > 0 and EVNTDATE-ROW/DENIED  <= $purge-date]/CODES-ROW/LNKEY
+
+ 
+
+let $declinedDblocksDate :=
+
+                $declinedLoans[ string-length(EVNTDATE-ROW/DENIED) = 0 and string-length(DBLOCKS-ROW/USER2KEY) > 0 and DBLOCKS-ROW/USER2KEY  <= $purge-date]/CODES-ROW/LNKEY
+
+ 
+
+let $declinedMiscTermsDate :=
+
+                $declinedLoans[string-length(EVNTDATE-ROW/DENIED) = 0 and string-length(DBLOCKS-ROW/USER2KEY ) = 0  and string-length(U_MISCTERMS-ROW/APP_RECD_DATE) > 0 ]/CODES-ROW/LNKEY
+
+ 
+
+(: can U_MISCTERMS-ROW/APP_RECD_DATE be empty??? :)
+
+ 
+
+let $declinedLoansToPurge := <DATA> <DECLINED-EVENTDATE>{$declinedLoansEventDate}</DECLINED-EVENTDATE><DECLINED-BLOCKSDATE>{$declinedDblocksDate}</DECLINED-BLOCKSDATE><DECLINED-MISCTERMSDATE>{$declinedMiscTermsDate}</DECLINED-MISCTERMSDATE> </DATA>
+
+ 
+
+ 
+
+ 
+
+(: Determine the Withdrawn Loan Numbers :)
+
+let $withdrawnLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[APPSTATN = ('26', '35', '41', '60', '73') ] 
+
+                                                let $evntdateRow := doc('/DATA/bmoempower/Collection/EVNTDATE')/EVNTDATE/EVNTDATE-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                                let $dblocksRow := doc('/DATA/bmoempower/Collection/DBLOCKS')/DBLOCKS/DBLOCKS-ROW[LNKEY = $codeRow/LNKEY ]
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $evntdateRow, $dblocksRow,$umisctermsrow)}</Loan>
+
+ 
+
+let $withdrawnLoansEventDate :=
+
+                $withdrawnLoans[ string-length(EVNTDATE-ROW/WITHDRAWN) > 0 and EVNTDATE-ROW/WITHDRAWN   <= $purge-date]/CODES-ROW/LNKEY
+
+ 
+
+let $withdrawnMiscTermsDate :=
+
+                $withdrawnLoans[ string-length(EVNTDATE-ROW/WITHDRAWN) = 0 and string-length(U_MISCTERMS-ROW/WITHDRAWN_DATE ) > 0  and U_MISCTERMS-ROW/WITHDRAWN_DATE <= $purge-date ]/CODES-ROW/LNKEY
+
+ 
+
+let $withdrawnDblocksDate :=
+
+                $withdrawnLoans[ string-length(EVNTDATE-ROW/WITHDRAWN) = 0 and string-length(U_MISCTERMS-ROW/WITHDRAWN_DATE ) = 0  and string-length(DBLOCKS-ROW/USER2KEY) > 0 and DBLOCKS-ROW/USER2KEY <= $purge-date ]/CODES-ROW/LNKEY
+
+ 
+
+let $withdrawnMisctermsAppRecdDate :=
+
+                $withdrawnLoans[ string-length(EVNTDATE-ROW/WITHDRAWN) = 0 and string-length(U_MISCTERMS-ROW/WITHDRAWN_DATE ) = 0  and string-length(DBLOCKS-ROW/USER2KEY ) = 0  and string-length(U_MISCTERMS-ROW/APP_RECD_DATE) > 0 and U_MISCTERMS-ROW/APP_RECD_DATE <= $purge-date ]/CODES-ROW/LNKEY
+
+ 
+
+ 
+
+(: can U_MISCTERMS-ROW/APP_RECD_DATE be empty??? :)
+
+ 
+
+let $withdrawnLoansToPurge := <DATA><WITHDRAWN-EVENT-DATE>{$withdrawnLoansEventDate}</WITHDRAWN-EVENT-DATE>
+        <WITHDRAWN-DBLOCKSDATE>{$withdrawnDblocksDate}</WITHDRAWN-DBLOCKSDATE> 
+        <WITHDRAWN-MISCTERMSDATE>{$withdrawnMiscTermsDate}</WITHDRAWN-MISCTERMSDATE> 
+        <WITHDRAWN-MISCTERMSRECDDATE>{$withdrawnMisctermsAppRecdDate}</WITHDRAWN-MISCTERMSRECDDATE>
+        </DATA>
+ 
+
+ 
+
+ 
+
+(: Determine the other Code loans to purge :)
+
+let $otherLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[not(APPSTATN = ('59', '27', '28', '29', '34', '44', '26', '35', '41', '60', '73') ) ] 
+
+                                                let $evntdateRow := doc('/DATA/bmoempower/Collection/EVNTDATE')/EVNTDATE/EVNTDATE-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                                let $dblocksRow := doc('/DATA/bmoempower/Collection/DBLOCKS')/DBLOCKS/DBLOCKS-ROW[LNKEY = $codeRow/LNKEY ]
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $evntdateRow, $dblocksRow,$umisctermsrow)}</Loan>
+
+ 
+
+let $otherMisctermsAppRecdDate :=
+
+                $otherLoans[  string-length(CODES-ROW/APPSTATN) > 0 and string-length(U_MISCTERMS-ROW/APP_RECD_DATE) > 0 and U_MISCTERMS-ROW/APP_RECD_DATE <= $purge-date ]/CODES-ROW/LNKEY
+
+ 
+
+(: can U_MISCTERMS-ROW/APP_RECD_DATE be empty??? :)
+
+ 
+
+let $otherLoansToPurge := distinct-values($otherMisctermsAppRecdDate)
+
+ 
+
+ 
+
+ 
+
+(: Determine the Abandoned loans to purge :)
+
+ 
+
+let $abandonedLoans :=
+
+                for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[string-length(APPSTATN) = 0 ] 
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $umisctermsrow)}</Loan>
+
+ 
+
+let $abandonedLoansToPurge :=
+
+                $abandonedLoans[ string-length(U_MISCTERMS-ROW/APP_RECD_DATE) = 0  ]/U_MISCTERMS-ROW/LNKEY
+
+ 
+
+ 
+
+ 
+
+(: Determine the No Underwriting Loans to purge :)
+
+ 
+
+ 
+
+let $noUnderwritingLoans :=
+
+               subsequence( for $codeRow in doc('/DATA/bmoempower/Collection/CODES')/CODES/CODES-ROW[string-length(APPSTATN) = 0 ] 
+
+                                                let $umisctermsrow := doc('/DATA/bmoempower/Collection/U_MISCTERMS')/U_MISCTERMS/U_MISCTERMS-ROW[LNKEY = $codeRow/LNKEY  ]
+
+                                return <Loan>{($codeRow, $umisctermsrow)}</Loan>
+,1,10)
+
+ 
+
+let $noUnderwritingLoansToPurge :=
+
+                $noUnderwritingLoans[ string-length(U_MISCTERMS-ROW/APP_RECD_DATE) > 0 and U_MISCTERMS-ROW/APP_RECD_DATE <= $purge-date ]/U_MISCTERMS-ROW/LNKEY
+
+ 
+
+ 
+
+ 
+
+
+return 
+
+let $allLoans := distinct-values(($fundedLoansToPurge//LNKEY, $declinedLoansToPurge//LNKEY, $withdrawnLoansToPurge//LNKEY, $otherLoansToPurge//LNKEY, $abandonedLoansToPurge//LNKEY, $noUnderwritingLoansToPurge//LNKEY) )
+
+(: now delete any loans that are in the HOLDS table :)
+(: Get the held loans :)
+let $holdLoans := doc('/DATA/HOLDS/')/HOLDS/HOLDS-ROW/LNUM
+
+(: filter them out of the results :)
+let $allLoans := $allLoans[ not(. = $holdLoans) ]
+
+(: Now go through all tables in the list and delete records with any of the affected loan numbers. 
+This iteration does NOT include the key loan tables.  This ensures that if a failure/restart occurs we can still find all the loans to be 
+purged and restart the process.  The key tables are deleted separately after all the related table records are purged
+:)
+
+let $purgeTables := ("ALIMONY", "APPINTELL", "ARMDISC", "AUTO_OWN", "BORRINFO", "BORRMTRX", "BORRVESTINGSTRUCT", "CALC", "CALC100", "CALC101", "CBRDATA", "CBRHISTORY", "CBRSTAT", "CDU_EXTENDED", "CHKSAV", "CONSDATA", "CREDHIST", "CREDRPTS", "CREDSCORE", "CREDSTATUS", "CURRADDR", "CURREMPL", "DEBTS", "DECLARES", "DEEDDATA", "DEEDDATA2", "DEPPURCH", "DOCGEN", "DOCGEN3", "DOCMEMO1", "DOCMEMO3", "DOC_ETC", "DUFINDINGSDOCLVLS", "DUFINDINGSMAIN", "DUFINDINGSMSGDTL", "DUFINDINGSMSGMAIN", "DUFINDINGSSFCODES", "DURESULT", "DU_HIST_RESULTS", "ESS_UNLOCKLOANHIST", "EVALPLAN", "EVENTS", "FACT_ACT", "FANNIEDU", "FEECATS", "FEES", "FG_ADJUSTMENTS", "FG_REDFLAGS", "FHACALC5", "FHAVACLC", "FHA_TRANS_SUMM", "FIELDPROPERTIES", "FLOOD", "FORMADDR", "FRAUDGUARD", "FRAUD_ALT", "FRAUD_ALT_ALERT", "GFEDATA", "GFEFEEHIST", "GFEFEEHISTDETAIL", "GFEFEES", "GFETRADEOFF", "GINNIE", "GOVFHA", "GOVFHAVA", "GOVTDOCS", "GOVVA", "HUD1A_15", "HUDAPP", "HUDARR10", "HUD_DOCS", "INCOME", "INITESCROW", "INITESCROW50", "INTRM_AMSCHED", "INTRM_BILLPROC", "INTRM_PAYPOST", "INTRM_SERV", "INTRVIEW", "ITEM_DOC", "JOB_EXP", "JUDGELIENS", "LOANHIST", "LOGPRINTDOC", "LPBORR", "LPCAIVRS", "LPCONTCT", "LPFHAVA", "LPLOAN", "LPPROPTY", "MARKET", "MERSDATA", "MIDANET", "MISCASST", "MI_PREMIUMS", "MI_RENEWALS", "MORNET", "MORTINS", "MTGTERMS", "NOTEEXP", "NOTEMEMO", "NOTEPAD", "OTHRINCOME", "OTHRINFO", "OTH_ASST", "OVERRIDE", "PLANDAT", "PLANDAT3", "PLANDAT6", "PRESMHE", "PRES_MHE", "PREV_EMP", "PRICADJ", "PRICESTATUS", "PRICESTIPS1", "PRICETBL", "PROPCNST", "PROPINFO", "PROPREFI", "PROVIDERS", "RATIOS", "RDXCOMNT2", "RDXCOMNT5", "RDXCOMNT6", "RDXCOMNT7", "REGULAT", "REGULAT4", "RE_OWNED", "RLADDRS", "RLDEBTS", "RLEMPLS", "ROLODEX", "SECMORT_NOTE", "SNAPSHOT", "STAMPTIME", "STOCKS", "TAXDOCS", "TBLAUTOWITHDRAWHIST", "TBLCATCHACCESSUPDATEROWS", "TBLDAILYACTIVITYRATELOCKPRICEDETAIL", "TBLHMDASELFMONLISTBASE", "TBLLOANSTOGATHER", "TBLREGBDETAIL", "TBLREPRINTINCOMPLETES", "TBLTOUCHESBYBROKER", "TBLTOUCHESBYBROKERYRROLL", "TILDATA", "TRANSUMM", "UCODES", "UCODES2", "UCODES3", "UCODES4", "URLADD", "URLADD10", "URLADD3", "URLADD6", "URLASPEC", "URLA_DETAILS", "U_4506T", "U_AFFORDABLE_SECONDS", "U_APPRAISALS", "U_APPRAISAL_ANALYSIS", "U_APPROVALS", "U_APPROVAL_COVER_LETTER", "U_APP_DEPOSIT_DISPOSITION", "U_APR_FEE_RESULTS", "U_ASSIGNMENTS", "U_AUTOSTIPRETAIL", "U_AUTOSTIP_TEST_RES", "U_BORRMTRX", "U_BORR_VEST", "U_BROKERSTATEDFEES", "U_BULLET_CRIT_TEMP", "U_BULLET_LN", "U_CHECKLISTS_ADDLDATA", "U_CHECKLISTS_ITEMS", "U_CHECKLISTS_MANUAL_ITEMS", "U_CHECKORDERS", "U_CLOSINGINFO", "U_CLOSINGINFO2", "U_CLOSINGINFO_LEGAL", "U_CLOSINGPAYOFFS", "U_CLOSINGRESERVATION", "U_COMPLIANCE_CAPTURE", "U_CONDITIONS", "U_COND_TEMP", "U_CONSTRUCTIONLNS", "U_COUNTER", "U_CREDHIST_TEMP", "U_CREDITGRADE", "U_CREDITSCORE", "U_CREDIT_SUMM", "U_DEBTS_TEMP", "U_DEBT_CHANGES", "U_DEBT_DELINQUENCY", "U_DEBT_MCONV", "U_DEBT_RATINGS", "U_DEBT_SUMM", "U_DEBT_TLU", "U_DEBT_VARIANCE", "U_DECLINE_REASONS", "U_DECL_REAS_PRINTED", "U_DEFICIENCIES_LOG", "U_DOCS", "U_DYNAFORM_POLICY_PROC_LOG", "U_EMAIL_QUEUE", "U_ESCROW_AGREEMENT", "U_EXCEPTIONTRACKING", "U_EXCEPTIONTRACKINGMKTCR", "U_EXTRANET", "U_FEES_ADDENDUM", "U_FLOOD_INS_WKSHT", "U_FRAUD", "U_FRAUD_CONFIRMED", "U_FRAUD_CONFIRMED_HISTORY", "U_FRAUD_HISTORY", "U_FRAUD_SUSPECT", "U_FRAUD_SUSPECT_HISTORY", "U_GFE", "U_GFECHANGEDCIRCUMSTANCE", "U_GFEFEEHISTDETAIL_NS", "U_GFEFEEHIST_NS", "U_GFEFEEREVIEWHISTDETAIL", "U_GFELOANDATAHIST", "U_GFE_HUD_RECONCILE", "U_GFE_HUD_RECONCIL_DETAIL", "U_GFE_THIRDPARTY", "U_HMDA", "U_HMDA_COMMENTS", "U_HMDA_DECERTS", "U_HMDA_SELF_MON", "U_HMDA_VALIDATIONS", "U_IMAGELITETOPDF_QUE", "U_IMAGEOUTPUT_LIST", "U_INCOME_COMMENTS", "U_INCOME_HOUSEHOLD", "U_INTRM_DISBURSEMENTS", "U_INTRM_SERV_ARCHIVE", "U_INVESTOR", "U_INVESTOR_SALES", "U_JUDGELIENS_TEMP", "U_JUDGE_SUMM", "U_LDPGSA", "U_LENDER", "U_LENDER_CONFIG", "U_LOCATION", "U_MARITAL_PROP", "U_MIFLEX_LTVADJ_TEMP", "U_MIFLEX_PRICEADJ_TEMP", "U_MIFLEX_PRODTYPE_TEMP", "U_MISCMEMO_1", "U_MISCTERMS2", "U_MISCTERMS3", "U_MISCTERMS4", "U_MI_EMPLOYEE_FROM", "U_NAME_AFFIDAVIT", "U_NOTIFICATIONS", "U_NTB_DATA", "U_NTB_EVALS", "U_ONBASE", "U_PF_CONTACT_HIST", "U_PRICEADJ", "U_PRICEADJ_MANUAL", "U_PROJECT", "U_PST", "U_QRPREFUNDADDONS", "U_QRPREFUNDRESPONSES", "U_QRRESPONSES", "U_QRTIMES", "U_RATELOCKS", "U_RATELOCKS_INVESTOR", "U_RATELOCKS_RIGID", "U_RATE_PRICE_MATRIX_COL", "U_RATE_PRICE_MATRIX_SEL", "U_RATE_PRICE_SELECTED", "U_RATIOS", "U_REFI_TYPE", "U_RELEASES", "U_REPRICEORIDES_TEMP", "U_REPRICE_ARRAY", "U_REPRICE_TEMP", "U_RESUBS", "U_STAMPTIME", "U_STAMPTIME2", "U_STAMPTIME_DELETED", "U_STAMPTIME_TEMP", "U_SUBORDINATIONS", "U_TAXES_WORKSHEET", "U_TEMP_PRICADJ", "U_THREEDAYPKG", "U_TIMEINLOAN", "U_TRACKING", "U_TRACK_DOCS", "U_TRACK_TRADES", "U_TRADEDEPTH_SUMM", "U_TRANSFERS", "U_UDM_TRACKING", "U_UNLOCK_TRACKING", "U_UPLOADILSWIRES", "U_UPLOADOSIWIRES", "U_VA_RACOLD", "U_UPLOADUSERMAINTLOG", "U_USDA_INCOME_WORKSHEET", "U_VA_ADDITIONAL_INFO", "U_WHAT_IF_DEBTS", "U_WHAT_IF_INCOME", "U_WHAT_IF_MISC", "U_WIRE", "U_WITHDRAW_TRACKING", "U_XML_DATAFILES", "VA_FHA_ANALS", "VA_LOAN_SUMM", "VA_LOAN_SUM_BS", "VESTINGINFO", "WORKFLOW")
+
+let $relatedTablePurge := local:process-tables($purgeTables, $allLoans, $purge-date)
+let $purgeTables := ("CODES", "DBLOCKS", "EVNTDATE", "U_MISCTERMS" )
+let $keyTablePurge := local:process-tables($purgeTables, $allLoans, $purge-date)
+
+return ( $relatedTablePurge, $keyTablePurge)
+
+]]>
+  </purgeXquery>
+</purgeQuery>

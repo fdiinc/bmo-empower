@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="NOTEMEMO"><RECORD-COUNT>260</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><NOTEMEMO-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></NOTEMEMO-TYPE><NOTEMEMO-TYPE><NAME>FULLPAGE</NAME><COLNO>2</COLNO><DATATYPE>text(2147483647)</DATATYPE><JDBC-DATATYPE CODE="2005">CLOB</JDBC-DATATYPE></NOTEMEMO-TYPE></DATATYPES><KEYS><NOTEMEMO-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK_NOTEMEMO</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></NOTEMEMO-KEY></KEYS><INDEXES><NOTEMEMO-INDEX><NAME>PK_NOTEMEMO</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></NOTEMEMO-INDEX></INDEXES></TABLEMETADATA>

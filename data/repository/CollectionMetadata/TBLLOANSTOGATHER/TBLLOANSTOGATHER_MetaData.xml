@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="DBO" TABLENAME="TBLLOANSTOGATHER"><RECORD-COUNT>23</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><TBLLOANSTOGATHER-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBLLOANSTOGATHER-TYPE><TBLLOANSTOGATHER-TYPE><NAME>USERID</NAME><COLNO>2</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBLLOANSTOGATHER-TYPE></DATATYPES><KEYS><TBLLOANSTOGATHER-KEY><NAME>Lnkey</NAME><CONSTRAINT_NAME>PK_tblLoansToGather</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLLOANSTOGATHER-KEY><TBLLOANSTOGATHER-KEY><NAME>UserId</NAME><CONSTRAINT_NAME>PK_tblLoansToGather</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLLOANSTOGATHER-KEY></KEYS><INDEXES><TBLLOANSTOGATHER-INDEX><NAME>PK_tblLoansToGather</NAME><COLUMN_NAME>Lnkey, UserId</COLUMN_NAME></TBLLOANSTOGATHER-INDEX></INDEXES></TABLEMETADATA>

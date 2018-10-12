@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_BROKER_LOGINS"><RECORD-COUNT>4251</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_BROKER_LOGINS-TYPE><NAME>LOGIDX</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_BROKER_LOGINS-TYPE><U_BROKER_LOGINS-TYPE><NAME>BROKERID</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_BROKER_LOGINS-TYPE><U_BROKER_LOGINS-TYPE><NAME>LOGINTIME</NAME><COLNO>3</COLNO><DATATYPE>smalldatetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></U_BROKER_LOGINS-TYPE></DATATYPES><KEYS><U_BROKER_LOGINS-KEY><NAME>LogIdx</NAME><CONSTRAINT_NAME>PK_U_BrokerLogins</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_BROKER_LOGINS-KEY></KEYS><INDEXES><U_BROKER_LOGINS-INDEX><NAME>brokerId</NAME><COLUMN_NAME>BrokerID</COLUMN_NAME></U_BROKER_LOGINS-INDEX><U_BROKER_LOGINS-INDEX><NAME>PK_U_BrokerLogins</NAME><COLUMN_NAME>LogIdx</COLUMN_NAME></U_BROKER_LOGINS-INDEX></INDEXES></TABLEMETADATA>

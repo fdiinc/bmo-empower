@@ -1,0 +1,202 @@
+<project name="bmoempower" default="run" 
+  xmlns:xdb="http://www.emc.com/documentum/xml/xdb"
+  xmlns:dds="http://www.emc.com/documentum/xml/dds">
+
+  <import file="../../../bin/build.xml" />    
+    
+  <!-- Makes sure the environment is properly set -->
+  <target name="-init" depends="DDS-dist.-init">
+  
+    <!-- JMM/Curtis -->
+    <if> <available file="../data/application/resources/template/template-content-main.xml"/>
+      <then>
+        <echo>Build resolved template-content</echo>
+        <taskdef name="xinclude" classname="org.znerd.xincludetask.XIncludeTask" />
+        <xinclude in="../data/application/resources/template/template-content-main.xml" out="../data/application/resources/template/template-content.xml" />
+        <replaceregexp file="../data/application/resources/template/template-content.xml"
+          match="xml\:base='[^']*?'"
+          replace=""
+          flags="gi"
+        />
+        </then>
+        <else>
+          <echo>Build using standard template-content.xml</echo>
+        </else>
+    </if> 
+
+    <dirname property="application.bin.dir" file="${ant.file.bmoempower}"/>
+  </target>   
+      
+  <target name="load-application-data" depends="-init-anttasks" unless="dontLoad">
+    <property name="dontLoad" value="true"/>
+    <dirname property="application.bin.dir" file="${ant.file.bmoempower}"/>
+    <property name="application.dir" value="${application.bin.dir}/.."/>
+    <xdb:database 
+      id="database" 
+      bootstrap="${xdb.bootstrap}" 
+      name="${xdb.databasename}" 
+      user="${xdb.username}" 
+      password="${xdb.password}"/>
+    <!-- Copy custom XForms over -->
+    <echo>Updating XForms with customizations</echo>
+    <copy failonerror="false" todir="${application.dir}/data/application/resources/xforms" overwrite="true">
+      <fileset dir="${application.dir}/data/application/resources/customXForms" includes="*/*.xfm" />
+    </copy>    
+    <!-- Upload the application data -->
+    <dds:import-application-data 
+      application="${application}" 
+      databaseref="database"
+      overwrite="true"
+      force="${force}"
+      quiet="false">      
+      <dds:xmlfileset dir="${application.dir}/data/application">
+        <include name="**/*.xpl"/>
+        <include name="**/*.xsl"/>
+        <include name="**/*.xml"/>
+        <include name="**/*.xfm"/>
+        <include name="**/*.xsd"/>
+        <include name="**/xforms"/>
+        <include name="**/xproc"/>
+        <include name="**/xslt"/>
+		<!--
+        <exclude name="*/xqueries/**/*.xml" />
+		-->
+        <exclude name="**/template/*.xml" />
+      </dds:xmlfileset>
+      <dds:xmlfileset dir="${application.dir}/data/application">
+        <domconfiguration>
+          <parameter name="validate" value="true" />
+        </domconfiguration>
+        <!-- JMM 3/25/2015 add the next 2 lines to exclude loading the modules folder and the template-content-main.xml to avoid validation -->
+        <exclude name="**/template/modules/*.xml"/>
+        <exclude name="**/template/template-content-main.xml"/>
+        <include name="**/template/*.xml" />
+      </dds:xmlfileset>
+      <dds:blobfileset dir="${application.dir}/data/application">
+        <include name="**/*.txt"/>
+        <include name="**/*.properties"/>
+        <include name="**/*.css"/>
+        <include name="**/*.xqy"/>
+        <include name="**/*.xquery"/>
+      </dds:blobfileset>                       
+    </dds:import-application-data>
+
+    <xdb:closedriver bootstrap="${xdb.bootstrap}" quiet="true"/>
+  </target>
+  
+  <target name="load-data-sets" depends="-init-anttasks" unless="dontLoad">
+    <!-- Set the name of the dataset. For this template, we use the application name as dataset name -->
+    <property name="dataset" value="${application}"/>
+    <dirname property="application.bin.dir" file="${ant.file.bmoempower}"/>       
+    <property name="dataset.dir" value="${application.bin.dir}/../data/repository/${dataset}"/>
+    <xdb:database id="database" 
+      bootstrap="${xdb.bootstrap}" 
+      name="${xdb.databasename}" 
+      user="${xdb.username}" 
+      password="${xdb.password}"
+     />          
+    <dds:create-dataset      
+      dataset="${dataset}" 
+      localeaware="true"
+      databaseref="database"
+      overwrite="false"
+      force="${force}"      
+      quiet="false"/>
+      
+    <!-- load data data by language -->  
+    <foreach list="eng, deu, jpn, nld"
+             target="-load-data" param="locale" inheritAll="true" inheritRefs="true" trim="true">
+      <param name="validate" value="false"/>             
+    </foreach>         
+    
+    <xdb:closedriver bootstrap="${xdb.bootstrap}" quiet="true"/>     
+  </target>  
+  
+  <!-- load data of a specific locale-->
+  <target name="-load-data">  
+    <dds:import-data 
+      dataset="${dataset}" 
+      databaseref="database"
+      overwrite="true"
+      quiet="false">
+      
+      <!-- import xml -->            
+      <dds:xmlfileset dir="${dataset.dir}/${locale}" locale="${locale}">   
+        <include name="**/*.xml"/>
+        <include name="**/*.ditamap"/>
+        <domconfiguration>
+          <parameter name="validate" value="${validate}"/>
+        </domconfiguration>     
+      </dds:xmlfileset>
+
+      <!-- import blobs -->            
+      <dds:blobfileset dir="${dataset.dir}/${locale}" locale="${locale}">
+        <include name="**/*.jpg" />
+        <include name="**/*.eps" />
+        <include name="**/*.gif" />
+      </dds:blobfileset>      
+
+      <!-- import metadata -->      
+      <dds:metadatafileset dir="${dataset.dir}/${locale}" locale="${locale}" metadataextension="metadata">
+        <include name="**/*.metadata"/>
+      </dds:metadatafileset> 
+      
+    </dds:import-data> 
+  </target>  
+
+  <target name="build" depends="-init">   
+    <delete dir="${build.dir}/${application}"/> 
+    <antcall target="-build-client">
+      <param name="module" value="${bmoempower.module}" />
+    </antcall>
+    <antcall target="-build-server">
+      <param name="module" value="${bmoempower.module}" />
+    </antcall>
+  </target>    
+        
+  <target name="create-war" depends="-init">    
+    <dirname property="application.bin.dir" file="${ant.file.bmoempower}"/>       
+    <property name="application.dir" value="${application.bin.dir}/.."/>
+    <antcall target="-create-war">
+      <param name="module" value="${bmoempower.module}" />
+    </antcall> 
+  </target>   
+
+  <target name="generate-xforms" depends="-init">
+        <taskdef resource="net/sf/antcontrib/antlib.xml">
+            <classpath>
+                <pathelement location="${application.bin.dir}/../../../lib/misc/ant-contrib-1.0b3.jar" />
+            </classpath>
+        </taskdef>
+
+        <property name="application.dir" value="${application.bin.dir}/.." />
+        <delete dir="${application.dir}/temp" />
+        <mkdir dir="${application.dir}/temp" />
+
+        <!-- generate XForms -->
+        <xslt basedir="${application.dir}/data/application/resources/template" style="${application.bin.dir}/generate-xform-xhtml.xsl" destdir="${application.dir}/temp">
+            <param name="http://apache.org/xalan/features/source_location" expression="true" />
+            <param name="export-dir" expression="${application.dir}/temp">
+            </param>
+            <param name="configurationId" expression="${id}" if="id">
+            </param>
+            <include name="template-content.xml" />
+        </xslt>
+
+        <fileset dir="${application.dir}/temp" id="src.files">
+            <include name="**/*.xhtml" />
+        </fileset>
+
+        <!-- get the paths of the generated xhtml forms -->
+        <pathconvert pathsep="," property="xhtml-files" refid="src.files" />
+
+        <foreach list="${xhtml-files}" target="-xhtml2xform" param="in" trim="true">
+            <param name="destdir" value="${application.dir}/data/application/resources/xforms" />
+            <param name="basedir" value="${base.dir}/bin" />
+            <param name="application.dir" value="${application.dir}" />
+        </foreach>
+        <delete dir="${application.dir}/temp" />
+    </target>
+  
+</project>
+

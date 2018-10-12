@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chainofcustody>
+    <appconfig uri="/ETLTools/IA_COC_Configs/config/glo-config.xml" />
+  <testsuite>
+
+    <test class="com.emc.ia.coc.tests.TableRowCountTest" />
+
+    <test class="com.emc.ia.coc.tests.TableDataTest" >
+    	<parameter name="digits" value="5" />
+    	<parameter name="extension" value="xml" />
+    </test>
+
+    <test class="com.flatironssolutions.ia.coc.tests.MetadataTest" />
+
+    <test class="com.flatironssolutions.ia.coc.tests.ColumnDataTest">
+      <parameter name="rows" value="100" />
+    </test>
+
+  </testsuite>
+ 
+ <result>        <formatter class="com.emc.ia.coc.result.format.TextResultFormatter">
+            <store type="file" path="/ETLTools/${dataset}/chain-of-custody-tests.txt" />
+        </formatter>
+        <formatter class="com.emc.ia.coc.result.format.XMLResultFormatter">
+            <store type="xdb" path="/DATA/chainofcustody/${id}/${dataset}/chain-of-custody-tests.xml" />
+        </formatter>
+    </result>
+</chainofcustody>

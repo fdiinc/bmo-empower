@@ -1,0 +1,648 @@
+/**
+* The file contains styles for GWT and GWT support widgets in the standard theme.
+* Does not include general styles or styles for deprecated widgets.
+*
+* In order to maintain cross-browser compatibility, the following syntax is
+* used to create IE6 specific style rules:
+*    .gwt-Widget {
+*      property:rule applies to all browsers
+*      -property:rule applies only to IE6 (overrides previous rule)
+*    }
+*    * html .gwt-Widget {
+*      property:rule applies to all versions of IE
+*    }
+*/
+
+
+/* CheckBox */
+
+.gwt-CheckBox input,
+.gwt-RadioButton input {
+border:none;
+background-color:transparent;
+background-image:none;
+}
+
+
+
+/* DecoratedStackPanel */
+
+td.stackItemTopCenter {
+height:2px;
+}
+
+td.stackItemMiddleLeft {
+background:url('images/stack/corner.png') no-repeat 0 0;
+-background-image:url('images/stack/corner_ie6.png');
+padding-left:3px;
+}
+
+td.stackItemMiddleCenter {
+background:url('images/stack/center.png') repeat-x 0 0;
+-background-image:url('images/stack/center_ie6.png');
+color:#15428b;
+cursor:pointer;
+height:21px;
+padding:0 0 0 8px;
+white-space:nowrap;
+width:100%;
+}
+
+td.stackItemMiddleRight {
+background:url('images/stack/corner.png') no-repeat -3px 0;
+-background-image:url('images/stack/corner_ie6.png');
+padding-left:3px;
+}
+
+td.gwt-StackPanelItem:hover td.stackItemMiddleLeft,
+td.gwt-StackPanelItem table.hover td.stackItemMiddleLeft,
+td.gwt-StackPanelItem:hover td.stackItemMiddleCenter,
+td.gwt-StackPanelItem table.hover td.stackItemMiddleCenter {
+background-position:0 -21px;
+}
+
+td.gwt-StackPanelItem:hover td.stackItemMiddleRight,
+td.gwt-StackPanelItem table.hover td.stackItemMiddleRight {
+background-position:-3px -21px;
+}
+
+td.gwt-StackPanelItem-selected td.stackItemMiddleLeft,
+td.gwt-StackPanelItem-selected:hover td.stackItemMiddleLeft,
+td.gwt-StackPanelItem-selected table.hover td.stackItemMiddleLeft,
+td.gwt-StackPanelItem-selected td.stackItemMiddleCenter,
+td.gwt-StackPanelItem-selected:hover td.stackItemMiddleCenter,
+td.gwt-StackPanelItem-selected table.hover td.stackItemMiddleCenter {
+background-position:0 -42px;
+font-weight:700;
+}
+
+td.gwt-StackPanelItem-selected td.stackItemMiddleRight,
+td.gwt-StackPanelItem-selected:hover td.stackItemMiddleRight,
+td.gwt-StackPanelItem-selected table.hover td.stackItemMiddleRight {
+background-position:-3px -42px;
+}
+
+
+
+/* DecoratedTabBar */
+
+.gwt-TabBarItem {
+margin:0 2px;
+cursor:pointer;
+}
+
+.gwt-TabBarItem-selected {
+font-weight:700;
+}
+
+.gwt-TabBarRest {
+width:100%;
+}
+
+.tabMiddleLeft,
+.tabMiddleRight {
+padding-left:4px;
+width:8px;
+}
+
+.tabMiddleLeft {
+background:url('images/tab/corner.png') no-repeat 0 0;
+-background-image:url('images/tab/corner_ie6.png');
+}
+
+.tabMiddleCenter {
+background:url('images/tab/center.png') repeat-x 0 0;
+-background-image:url('images/tab/center_ie6.png');
+height:22px;
+padding:2px 3px 0;
+vertical-align:middle;
+white-space:nowrap;
+}
+
+.tabMiddleCenterInner,
+.tabMiddleCenterInner div,
+.tabMiddleCenterInner span {
+color:#15428b;
+font-size:11px;
+}
+
+.tabMiddleRight {
+background:url('images/tab/corner.png') no-repeat -3px 0;
+-background-image:url('images/tab/corner_ie6.png');
+}
+
+.gwt-TabBarItem-wrapper table:hover .tabMiddleLeft,
+.gwt-TabBarItem-wrapper table.hover .tabMiddleLeft,
+.gwt-TabBarItem-wrapper table:hover .tabMiddleCenter,
+.gwt-TabBarItem-wrapper table.hover .tabMiddleCenter {
+background-position:0 -22px;
+}
+
+.gwt-TabBarItem-wrapper table:hover .tabMiddleRight,
+.gwt-TabBarItem-wrapper table.hover .tabMiddleRight {
+background-position:-3px -22px;
+}
+
+.gwt-TabBarItem-selected .tabMiddleLeft,
+.gwt-TabBarItem-wrapper-selected table:hover .tabMiddleLeft,
+.gwt-TabBarItem-wrapper-selected table.hover .tabMiddleLeft,
+.gwt-TabBarItem-selected .tabMiddleCenter,
+.gwt-TabBarItem-wrapper-selected table:hover .tabMiddleCenter,
+.gwt-TabBarItem-wrapper-selected table.hover .tabMiddleCenter {
+background-position:0 -44px;
+}
+
+.gwt-TabBarItem-selected .tabMiddleCenter div,
+.gwt-TabBarItem-wrapper-selected table:hover .tabMiddleCenter div,
+.gwt-TabBarItem-wrapper-selected table.hover .tabMiddleCenter div {
+color:#1a5b93;
+}
+
+.gwt-TabBarItem-selected .tabMiddleRight,
+.gwt-TabBarItem-wrapper-selected table:hover .tabMiddleRight,
+.gwt-TabBarItem-wrapper-selected table.hover .tabMiddleRight {
+background-position:-3px -44px;
+}
+
+.core-TabBarBorder-left {
+background:url('images/tab/center.png') no-repeat 0 -91px;
+-background-image:url('images/tab/center_ie6.png');
+width:1px;
+}
+
+.core-TabBarBorder-center {
+background:url('images/tab/center.png') repeat-x 0 -66px;
+-background-image:url('images/tab/center_ie6.png');
+padding-bottom:3px;
+}
+
+* html .core-TabBarBorder-center {
+padding-bottom:2px;
+} 
+
+.core-TabBarBorder-right {
+background:url('images/tab/center.png') no-repeat 0 -91px;
+-background-image:url('images/tab/center_ie6.png');
+width:1px;
+}
+
+
+
+/* DisclosurePanel */
+
+.gwt-DisclosurePanel {
+width:100%;
+margin-top:8px;
+}
+
+.gwt-DisclosurePanel td {
+border:1px solid #8db2e3;
+border-top:none;
+}
+
+.gwt-DisclosurePanel td td {
+border:none;
+}
+
+.gwt-DisclosurePanel .header {
+border-top:1px solid #8db2e3;
+}
+
+.gwt-DisclosurePanel .header {
+background:#fff url('images/menu/center.png') repeat-x;
+height:18px;
+}
+
+.gwt-DisclosurePanel .header:hover {
+text-decoration:none;
+}
+
+.gwt-DisclosurePanel .header td {
+color:#15428b;
+font-weight:700;
+white-space:nowrap;
+vertical-align:top;
+padding:0;
+}
+
+.gwt-DisclosurePanel-open .content {
+overflow:auto;
+}
+
+
+
+/* DragDrop */
+
+.core-DragDrop {
+background-color:#f0f0f0;
+border:1px solid #96aecd;
+color:#15428b;
+padding:2px;
+}
+
+.core-DragDrop span img {
+margin:0 2px 0 0;
+vertical-align:middle;
+}
+
+
+
+/* DropTarget */
+
+.core-DropTarget-into .gwt-TreeItem {
+background-color:#b9c2d7;
+cursor:move;
+}
+
+.core-DropTarget-before .gwt-TreeItem {
+border-top:2px solid #000;
+cursor:move;
+}
+
+.core-DropTarget-into div .gwt-TreeItem,
+.core-DropTarget-before div .gwt-TreeItem,
+.core-DropTarget-into div .gwt-TreeItem-selected,
+.core-DropTarget-before div .gwt-TreeItem-selected {
+background-color:transparent;
+border:transparent;
+}
+
+.core-DropTarget-into div .gwt-TreeItem-selected {
+background-color:#b9c2d7;
+color:#FFF;
+padding:2px;
+}
+
+
+
+/* FlexTable */
+
+.gwt-FlexTable {
+border-collapse:collapse;
+}
+
+tr.odd {
+background-color:#f5f6f7;
+border-bottom:1px solid #ededed;
+}
+
+tr.even {
+background-color:#fff;
+border-bottom:1px solid #ededed;
+}
+
+tr.odd:hover,
+tr.even:hover {
+background:#efefef url('images/table/row_hover.png') repeat-x 0 0;
+}
+
+tr.selected td {
+background-color:#5e8cb3;
+background-image:none;
+color:#fff;
+}
+
+
+
+/* ImageTextPanel */
+
+.core-ImageTextPanel {
+display:inline;
+white-space:nowrap;
+}
+
+.core-ImageTextPanel img {
+vertical-align:middle;
+}
+
+.core-ImageTextPanel div {
+display:inline;
+margin-left:6px;
+}
+
+
+
+/* MenuBar */
+
+.gwt-MenuBar {
+background:#cbddf3 url('images/menu/center.png') repeat-x 0 0;
+border:1px solid #1a5b93;
+border-bottom:none;
+height:18px;
+}
+
+.gwt-MenuItem-selected {
+background:#cbddf3 url('images/menu/center.png') repeat-x 0 -18px;
+font-size:10px;
+}
+
+.gwt-MenuBar-selected {
+background:#fff none;
+border:1px solid #1a5b93;
+border-bottom:none;
+height:18px;
+}
+
+.gwt-MenuBar table {
+border-collapse:collapse;
+}
+
+.gwt-MenuItem {
+background:url('images/menu/down.png') no-repeat center right;
+-background-image:url('images/menu/down_ie6.png');
+color:#15428b;
+font-size:10px;
+height:18px;
+padding:0 64px 0 8px;
+white-space:nowrap;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem {
+padding-left: 32px;
+}
+
+.gwt-MenuBar-vertical {
+border:none;
+text-align:left;
+background:transparent none;
+margin-left:-1px;
+}
+
+.gwt-MenuBar-vertical table {
+border:1px solid #718bb7;
+background:#f0f0f0 url('images/menu/background.png') repeat-y 0 0;
+}
+
+.gwt-MenuBar-vertical span {
+margin:0 0 0 12px;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem {
+background-image:none;
+height:22px;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem-selected {
+background:#deecfd 0 -36px;
+}
+
+.gwt-MenuItem div {
+display:inline;
+margin-left:4px;
+}
+
+.gwt-MenuItem img {
+vertical-align:middle;
+}
+
+.gwt-MenuBar-vertical .gwt-MenuItem img {
+margin-left:-24px;
+}
+
+
+
+/* PagingBar */
+
+.core-PagingBar .gwt-TabBarItem {
+cursor:pointer;
+text-align:center;
+width:20px;
+}
+
+
+
+/* PathDialog */
+
+.core-PathDialog {
+width:720px;
+}
+
+div.core-PathDialog-name {
+width:100px;
+}
+
+input.core-PathDialog-name {
+width:540px;
+}
+
+.core-PathDialog .core-TreeNavigator {
+padding:16px 0;
+}
+
+.core-PathDialog-treeScrollPanel {
+width:300px;
+height:320px;
+margin-right:20px;
+}
+
+.core-PathDialog .core-TableComposite {
+width:320px;
+height:320px;
+}
+
+.core-PathDialog-buttons {
+/* Fix for Firefox 2, which does not receive click events otherwise */
+margin-top:26px;
+}
+
+
+
+/* SplitPanel (HorizontalSplitPanel and VerticalSplitPanel) */
+
+.hsplitter,
+.vsplitter {
+background-color:#e7eaf1;
+}
+
+.hsplitter {
+cursor:e-resize;
+}
+
+.vsplitter {
+cursor:n-resize;
+}
+
+.vsplitter img,
+.hsplitter img {
+margin:0;
+visibility:hidden;
+}
+
+
+
+/* SuggestBox */
+
+.gwt-SuggestBoxPopup {
+background-color:#FFF;
+border:2px solid #b9c2d7;
+}
+
+.gwt-SuggestBoxPopup .item {
+padding:2px;
+}
+
+.gwt-SuggestBoxPopup .item-selected {
+background-color:#b9c2d7;
+padding:2px;
+}
+
+
+
+/* TabBar */
+
+.gwt-TabBar-menu {
+height:30px;
+background:#cddef3 url('images/tab/menu.png') repeat-x 0 0;
+border:1px solid #1a5b93;
+}
+
+.gwt-TabBar-menu .gwt-TabBarFirst {
+width:0;
+}
+
+.gwt-TabBar-menu .gwt-TabBarItem-wrapper {
+border-right:1px solid #1a5b93;
+height:30px;
+}
+
+.gwt-TabBar-menu .gwt-TabBarItem {
+height:26px;
+-height:30px;
+padding:4px 8px 0;
+margin-left:0;
+margin-right:0;
+}
+
+.gwt-TabBar-menu .gwt-TabBarItem-selected {
+background:#cddef3 url('images/tab/menu.png') repeat-x 0 -30px;
+}
+
+.gwt-TabBar-menu .gwt-TabBarItem-disabled,
+.gwt-TabBar-menu .gwt-TabBarItem-disabled .gwt-Label,
+.gwt-TabBar-menu .gwt-TabBarItem-disabled .gwt-HTML {
+color:#777;
+}
+
+.gwt-TabBar-menu .gwt-TabBarItem .gwt-Label,
+.gwt-TabBar-menu .gwt-TabBarItem .gwt-HTML {
+font-size:12px;
+font-weight:400;
+white-space:nowrap;
+}
+
+
+
+/* TableComposite */
+
+.core-TableComposite-header,
+.core-TableComposite-table {
+empty-cells:show;
+width:100%;
+table-layout:fixed;
+}
+
+.core-TableComposite-header td,
+.core-TableComposite-table td {
+overflow:hidden;
+padding-left:4px;
+white-space:nowrap;
+}
+
+
+
+/* TableHeader */
+
+.core-TableHeader {
+border-top:1px solid #b5b8c8;
+border-spacing:1px;
+empty-cells:show;
+}
+
+.core-TableHeader td {
+background:#f1f2f4 url('images/table/header.png') repeat-x 0 0;
+border-bottom:1px solid #d0d0d0;
+border-right:1px solid #d0d0d0;
+height:24px;
+padding:0;
+border-collapse:separate;
+vertical-align:middle;
+white-space:nowrap;
+}
+
+.core-TableHeader-down div {
+background:url('images/table/sort_down.png') no-repeat top right;
+-background-image:url('images/table/sort_down_ie6.png');
+}
+
+.core-TableHeader-up div {
+background:url('images/table/sort_up.png') no-repeat top right;
+-background-image:url('images/table/sort_up_ie6.png');
+}
+
+
+
+/* TabPanel */
+
+.gwt-TabPanel .gwt-TabBar {
+margin:8px 0 0;
+}
+
+.gwt-TabPanelBottom {
+background-color:#fff;
+border:1px solid #8db2e3;
+border-top:none;
+}
+
+
+
+/* TextBox */
+
+input.gwt-TextBox-readonly,
+input.gwt-PasswordTextBox-readonly {
+color:#777;
+background:#f3f3f3 url('images/input_readonly.png') repeat-x;
+}
+
+
+
+/* Tree */
+
+.gwt-Tree {
+-moz-user-select:none;
+}
+
+.gwt-TreeItem {
+white-space:nowrap;
+padding:0;
+cursor:pointer;
+}
+
+.gwt-TreeItem .gwt-HTML {
+padding-right:2px;
+}
+
+.gwt-TreeItem-selected {
+background-color:#96aecd;
+color:#FFF;
+}
+
+
+
+/* TreeNavigator */
+
+.core-TreeNavigator td {
+padding:0;
+}
+
+
+
+/*
+* IE workarounds for core widgets (.core-*, .gwt-*) and defaults.
+*/
+
+* html .gwt-TabBarItem-wrapper table,
+* html .gwt-TabBarItem-wrapper-selected table,
+* html td.gwt-StackPanelItem table,
+_behavior:expression(this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"),this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
+}
+

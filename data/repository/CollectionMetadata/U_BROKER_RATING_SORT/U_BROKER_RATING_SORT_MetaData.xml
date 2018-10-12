@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_BROKER_RATING_SORT"><RECORD-COUNT>9</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_BROKER_RATING_SORT-TYPE><NAME>BROKER_RATING</NAME><COLNO>1</COLNO><DATATYPE>varchar(10)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_BROKER_RATING_SORT-TYPE><U_BROKER_RATING_SORT-TYPE><NAME>SORTORDER</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_BROKER_RATING_SORT-TYPE></DATATYPES><KEYS><U_BROKER_RATING_SORT-KEY><NAME>Broker_Rating</NAME><CONSTRAINT_NAME>PK_U_BROKER_RATING_SOR</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_BROKER_RATING_SORT-KEY></KEYS><INDEXES><U_BROKER_RATING_SORT-INDEX><NAME>PK_U_BROKER_RATING_SOR</NAME><COLUMN_NAME>Broker_Rating</COLUMN_NAME></U_BROKER_RATING_SORT-INDEX></INDEXES></TABLEMETADATA>

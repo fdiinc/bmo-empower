@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_PLANSU_MAXPPP"><RECORD-COUNT>10</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_PLANSU_MAXPPP-TYPE><NAME>PLANID</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_PLANSU_MAXPPP-TYPE><U_PLANSU_MAXPPP-TYPE><NAME>PLANDESCRIPTION</NAME><COLNO>2</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_PLANSU_MAXPPP-TYPE></DATATYPES><KEYS><U_PLANSU_MAXPPP-KEY><NAME>PlanID</NAME><CONSTRAINT_NAME>PK_Temp_U_PLANSU_MaxPPP</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_PLANSU_MAXPPP-KEY></KEYS><INDEXES><U_PLANSU_MAXPPP-INDEX><NAME>PK_Temp_U_PLANSU_MaxPPP</NAME><COLUMN_NAME>PlanID</COLUMN_NAME></U_PLANSU_MAXPPP-INDEX></INDEXES></TABLEMETADATA>

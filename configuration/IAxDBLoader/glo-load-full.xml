@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="configuration.xsd" xsi:type="ia3.2">
+    <connection userName="Administrator" password="<PW>" bootstrap="xhive://<HOST>:1235#glo"
+        cachePages="10000" databaseName="bmoglo"/>
+
+    <dataset>
+        <set srcPath="F:\ETL\GLO\DATA\Collection\EMPOWER"
+            libraryPath="/DATA/bmoglo/Collection" uncompress="true"/>
+       
+    </dataset>
+
+</config>

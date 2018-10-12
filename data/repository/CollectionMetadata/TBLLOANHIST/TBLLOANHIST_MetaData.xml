@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="DBO" TABLENAME="TBLLOANHIST"><RECORD-COUNT>37</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><TBLLOANHIST-TYPE><NAME>USERID</NAME><COLNO>1</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBLLOANHIST-TYPE><TBLLOANHIST-TYPE><NAME>LOANHISTFILE</NAME><COLNO>2</COLNO><DATATYPE>text(2147483647)</DATATYPE><JDBC-DATATYPE CODE="2005">CLOB</JDBC-DATATYPE></TBLLOANHIST-TYPE></DATATYPES><KEYS><TBLLOANHIST-KEY><NAME>UserID</NAME><CONSTRAINT_NAME>PK_tblLoanHist_1</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLLOANHIST-KEY></KEYS><INDEXES><TBLLOANHIST-INDEX><NAME>PK_tblLoanHist_1</NAME><COLUMN_NAME>UserID</COLUMN_NAME></TBLLOANHIST-INDEX></INDEXES></TABLEMETADATA>

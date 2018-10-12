@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_FHA_HOC"><RECORD-COUNT>55</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_FHA_HOC-TYPE><NAME>STATECODE</NAME><COLNO>1</COLNO><DATATYPE>varchar(2)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_FHA_HOC-TYPE><U_FHA_HOC-TYPE><NAME>FHA_HOC</NAME><COLNO>2</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_FHA_HOC-TYPE></DATATYPES><KEYS><U_FHA_HOC-KEY><NAME>STATECODE</NAME><CONSTRAINT_NAME>PK_U_FHA_HOC</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_FHA_HOC-KEY></KEYS><INDEXES><U_FHA_HOC-INDEX><NAME>PK_U_FHA_HOC</NAME><COLUMN_NAME>STATECODE</COLUMN_NAME></U_FHA_HOC-INDEX></INDEXES></TABLEMETADATA>

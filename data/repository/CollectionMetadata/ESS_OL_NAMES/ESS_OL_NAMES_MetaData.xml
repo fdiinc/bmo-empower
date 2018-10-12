@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="ESS_OL_NAMES"><RECORD-COUNT>3</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><ESS_OL_NAMES-TYPE><NAME>JOBID</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></ESS_OL_NAMES-TYPE><ESS_OL_NAMES-TYPE><NAME>JOBNAME</NAME><COLNO>2</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></ESS_OL_NAMES-TYPE></DATATYPES><KEYS><ESS_OL_NAMES-KEY><NAME>JOBID</NAME><CONSTRAINT_NAME>PK_ESS_OL_NAMES</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></ESS_OL_NAMES-KEY></KEYS><INDEXES><ESS_OL_NAMES-INDEX><NAME>PK_ESS_OL_NAMES</NAME><COLUMN_NAME>JOBID</COLUMN_NAME></ESS_OL_NAMES-INDEX></INDEXES></TABLEMETADATA>

@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_RATINGREMARKCODES"><RECORD-COUNT>34</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_RATINGREMARKCODES-TYPE><NAME>REMARK_CODE</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_RATINGREMARKCODES-TYPE><U_RATINGREMARKCODES-TYPE><NAME>REMARK_DESCRIPTION</NAME><COLNO>2</COLNO><DATATYPE>char(100)</DATATYPE><JDBC-DATATYPE CODE="1">CHAR</JDBC-DATATYPE></U_RATINGREMARKCODES-TYPE></DATATYPES><KEYS><U_RATINGREMARKCODES-KEY><NAME>Remark_Code</NAME><CONSTRAINT_NAME>PK_U_RATINGREMARKCODES</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_RATINGREMARKCODES-KEY></KEYS><INDEXES><U_RATINGREMARKCODES-INDEX><NAME>PK_U_RATINGREMARKCODES</NAME><COLUMN_NAME>Remark_Code</COLUMN_NAME></U_RATINGREMARKCODES-INDEX></INDEXES></TABLEMETADATA>

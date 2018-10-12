@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="FIELDPROPERTIES"><RECORD-COUNT>173251</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><FIELDPROPERTIES-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></FIELDPROPERTIES-TYPE><FIELDPROPERTIES-TYPE><NAME>FIELDPROPS</NAME><COLNO>2</COLNO><DATATYPE>image(2147483647)</DATATYPE><JDBC-DATATYPE CODE="2004">BLOB</JDBC-DATATYPE></FIELDPROPERTIES-TYPE></DATATYPES><KEYS><FIELDPROPERTIES-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK_FIELDPROPERTIES</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></FIELDPROPERTIES-KEY></KEYS><INDEXES><FIELDPROPERTIES-INDEX><NAME>PK_FIELDPROPERTIES</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></FIELDPROPERTIES-INDEX></INDEXES></TABLEMETADATA>

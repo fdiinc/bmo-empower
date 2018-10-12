@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_AUTOSTIPGENERIC"><RECORD-COUNT>10</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_AUTOSTIPGENERIC-TYPE><NAME>GENERICSTIPID</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_AUTOSTIPGENERIC-TYPE><U_AUTOSTIPGENERIC-TYPE><NAME>GENERICSTIP</NAME><COLNO>2</COLNO><DATATYPE>varchar(128)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_AUTOSTIPGENERIC-TYPE></DATATYPES><KEYS><U_AUTOSTIPGENERIC-KEY><NAME>GenericStipId</NAME><CONSTRAINT_NAME>PK_U_AutoStipGeneric</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_AUTOSTIPGENERIC-KEY></KEYS><INDEXES><U_AUTOSTIPGENERIC-INDEX><NAME>PK_U_AutoStipGeneric</NAME><COLUMN_NAME>GenericStipId</COLUMN_NAME></U_AUTOSTIPGENERIC-INDEX></INDEXES></TABLEMETADATA>

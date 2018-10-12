@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  DO NOT EDIT. Modifications to this file will be lost.
+-->
+
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+
+  <tlib-version>1.0</tlib-version>
+
+  <short-name>xtags</short-name>
+
+  <uri>http://www.emc.com/documentum/xml/dds/taglib</uri>
+
+  <tag>
+    <name>contextnode</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.ContextNodeTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>uri</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>session</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.SessionTag</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <name>userName</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>   
+    <attribute>
+      <name>retries</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>         
+    <attribute>
+      <name>readonly</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>xquery</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.XQueryTag</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <name>contextNodeURI</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>transform</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.TransformTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>uri</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>styleURI</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>print</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.PrintTag</tag-class>
+    <body-content>tagdependent</body-content>
+  </tag>
+
+  <tag>
+    <name>tostring</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.ToStringTag</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+
+  <tag>
+    <name>foreach</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.ForEachTag</tag-class>
+    <body-content>JSP</body-content>
+  </tag>
+
+  <tag>
+    <name>break</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.BreakTag</tag-class>
+    <body-content>empty</body-content>
+  </tag>
+
+  <tag>
+    <name>choose</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.ChooseTag</tag-class>
+    <body-content>JSP</body-content>
+  </tag>
+
+  <tag>
+    <name>when</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.WhenTag</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <name>className</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>otherwise</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.OtherwiseTag</tag-class>
+    <body-content>JSP</body-content>
+  </tag>
+
+  <tag>
+    <name>xform</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.XFormsTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>uri</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>locale</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>xproc</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.XProcTag</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <name>uri</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>output</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>  
+    <attribute>
+      <name>ignoreoutput</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>      
+  </tag>
+
+  <tag>
+    <name>input</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.XProcInputTag</tag-class>
+    <body-content>JSP</body-content>
+    <attribute>
+      <name>port</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>      
+    <attribute>
+      <name>uri</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag>
+
+  <tag>
+    <name>option</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.XProcOptionTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>prefix</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute> 
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute> 
+    <attribute>
+      <name>namespaceURI</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>     
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>parameter</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.XProcParameterTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>port</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>prefix</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute> 
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute> 
+    <attribute>
+      <name>namespaceURI</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>     
+    <attribute>
+      <name>value</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>  
+  </tag>
+
+  <tag>
+    <name>blob</name>
+    <tag-class>com.emc.documentum.xml.dds.taglib.BlobTag</tag-class>
+    <body-content>empty</body-content>          
+    <attribute>
+      <name>uri</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>alt</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>    
+  </tag>
+
+</taglib>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

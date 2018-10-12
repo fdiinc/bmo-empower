@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_CONTACT_LINK"><RECORD-COUNT>30</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_CONTACT_LINK-TYPE><NAME>MARKETID</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_CONTACT_LINK-TYPE><U_CONTACT_LINK-TYPE><NAME>AEID</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_CONTACT_LINK-TYPE></DATATYPES><KEYS><U_CONTACT_LINK-KEY><NAME>MarketID</NAME><CONSTRAINT_NAME>PK_U_CONTACT_LINK</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_CONTACT_LINK-KEY><U_CONTACT_LINK-KEY><NAME>AEid</NAME><CONSTRAINT_NAME>PK_U_CONTACT_LINK</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_CONTACT_LINK-KEY></KEYS><INDEXES><U_CONTACT_LINK-INDEX><NAME>PK_U_CONTACT_LINK</NAME><COLUMN_NAME>MarketID, AEid</COLUMN_NAME></U_CONTACT_LINK-INDEX></INDEXES></TABLEMETADATA>

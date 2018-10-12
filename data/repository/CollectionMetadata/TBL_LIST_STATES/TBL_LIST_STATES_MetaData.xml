@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="DBO" TABLENAME="TBL_LIST_STATES"><RECORD-COUNT>52</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><TBL_LIST_STATES-TYPE><NAME>STATE</NAME><COLNO>1</COLNO><DATATYPE>varchar(35)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBL_LIST_STATES-TYPE><TBL_LIST_STATES-TYPE><NAME>STATEABREV</NAME><COLNO>2</COLNO><DATATYPE>varchar(2)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBL_LIST_STATES-TYPE></DATATYPES><KEYS><TBL_LIST_STATES-KEY><NAME>StateAbrev</NAME><CONSTRAINT_NAME>PK_tbl_list_States</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBL_LIST_STATES-KEY></KEYS><INDEXES><TBL_LIST_STATES-INDEX><NAME>PK_tbl_list_States</NAME><COLUMN_NAME>StateAbrev</COLUMN_NAME></TBL_LIST_STATES-INDEX></INDEXES></TABLEMETADATA>

@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="DUCUSTOMRESULT"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><DUCUSTOMRESULT-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></DUCUSTOMRESULT-TYPE><DUCUSTOMRESULT-TYPE><NAME>CDURESULTS</NAME><COLNO>2</COLNO><DATATYPE>image(2147483647)</DATATYPE><JDBC-DATATYPE CODE="2004">BLOB</JDBC-DATATYPE></DUCUSTOMRESULT-TYPE></DATATYPES><KEYS><DUCUSTOMRESULT-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK_DUCUSTOMRESULT</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></DUCUSTOMRESULT-KEY></KEYS><INDEXES><DUCUSTOMRESULT-INDEX><NAME>PK_DUCUSTOMRESULT</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></DUCUSTOMRESULT-INDEX></INDEXES></TABLEMETADATA>

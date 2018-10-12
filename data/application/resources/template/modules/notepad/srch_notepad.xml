@@ -1,0 +1,66 @@
+<searchConfiguration id="searchNotepad">
+    <xformName>SearchNotepad</xformName>
+    <xquery>
+        <![CDATA[
+                import module namespace notepadSearch = 'notepadSearch' at '/APPLICATIONS/bmoempower/resources/xqueries/search_notepad/search.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := notepadSearch:getNotepadSearchResults($currentuser, $first, $last, $input)
+                return $results
+                ]]>
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>loanNumber</name>
+                <label>Loan #</label>
+                <whereclauseparameter>$elem/loanNumber</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+		<searchResultItem>
+            <name>loan_number</name>
+            <label>Loan #</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>date</name>
+            <label>Date (MM/DD/YYYY)</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>initials</name>
+            <label>Initials</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>category</name>
+            <label>Category</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>comment</name>
+            <label>Comment</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>exp_notes</name>
+            <label>Exp Note</label>
+        </searchResultItem>
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>

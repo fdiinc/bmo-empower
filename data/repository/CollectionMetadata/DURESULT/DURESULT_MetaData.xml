@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="DURESULT"><RECORD-COUNT>20179</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><DURESULT-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></DURESULT-TYPE><DURESULT-TYPE><NAME>RESULTS</NAME><COLNO>2</COLNO><DATATYPE>image(2147483647)</DATATYPE><JDBC-DATATYPE CODE="2004">BLOB</JDBC-DATATYPE></DURESULT-TYPE><DURESULT-TYPE><NAME>GRADERESULTS</NAME><COLNO>3</COLNO><DATATYPE>image(2147483647)</DATATYPE><JDBC-DATATYPE CODE="2004">BLOB</JDBC-DATATYPE></DURESULT-TYPE></DATATYPES><KEYS><DURESULT-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK__DURESULT__09FE775D</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></DURESULT-KEY></KEYS><INDEXES><DURESULT-INDEX><NAME>PK__DURESULT__09FE775D</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></DURESULT-INDEX></INDEXES></TABLEMETADATA>

@@ -1,0 +1,134 @@
+
+<project name="xdbpurge" basedir="." default="usage">
+    <property file="build.properties"/>
+    <property name="src.dir" value="src/java"/>
+    <property name="etc.dir" value="etc"/>
+    <property name="deploy.dir" value="deploy"/>
+	<property name="resources.dir" value="src/resources"/> 	
+    <property name="build.dir" value="bin"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="xdb.home" value="C:/PROGRA~2/xDB/"/>
+    <property name="name" value="xDBPurge"/>
+
+
+    <path id="master-classpath">
+        <pathelement path="${build.dir}"/>
+   	 <fileset dir="${xdb.home}/lib">
+   	            <include name="xhive*.jar"/>
+   	 </fileset>
+   	 <fileset dir="${lib.dir}">
+   	            <include name="log4j*.jar"/>
+   	 </fileset>
+    </path>
+
+    <target name="usage">
+        <echo message=""/>
+        <echo message="${name} build file"/>
+        <echo message="-----------------------------------"/>
+        <echo message=""/>
+        <echo message="Available targets are:"/>
+        <echo message=""/>
+        <echo message="build     --> Build the application"/>
+        <echo message="deploy    --> Deploy application as a jar"/>
+        <echo message=""/>
+    </target>
+
+    <target name="build" description="Compile main source tree java files">
+        <mkdir dir="${build.dir}"/>
+    	
+        <copy todir="${build.dir}" preservelastmodified="true">
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar"/>
+            </fileset>
+        </copy>
+ 
+    	
+        <javac destdir="${build.dir}" includes="**/*.*" target="1.6" source="1.6" debug="true"
+               deprecation="false" optimize="false" failonerror="true" includeantruntime="false">
+            <src path="${src.dir}"/>
+            <classpath refid="master-classpath"/>
+        </javac>
+        
+         <copy todir="${build.dir}" preservelastmodified="true">
+            <fileset dir="${src.dir}">
+                <include name="**/*.properties"/>
+            </fileset>
+        </copy>
+    
+
+         <copy todir="${build.dir}" preservelastmodified="true">
+            <fileset dir="${src.dir}">
+                <include name="**/*.xml"/>
+             </fileset>
+        </copy>
+
+    	<copy todir="${build.dir}" preservelastmodified="true">
+    	    <fileset dir="${resources.dir}">
+    	        <include name="**/*.properties"/>
+    	        <exclude name="**/purge.properties"/>
+    	    </fileset>
+    	</copy>  
+
+    </target>
+
+    <target name="deploy" depends="build" description="Deploy application as a JAR file">
+         <jar destfile="${name}.jar" >            
+ 
+            <fileset dir="${build.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </jar>
+
+        <copy todir="${deploy.dir}" preservelastmodified="true">
+            <fileset dir=".">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+        
+        <copy todir="${deploy.dir}" preservelastmodified="true">
+            <fileset dir="${etc.dir}">
+                <include name="**/*.*"/>
+             </fileset>
+        </copy>
+    	
+        
+        <copy todir="${deploy.dir}" preservelastmodified="true">
+            <fileset dir="${lib.dir}">
+                <include name="**/*.*"/>
+             </fileset>
+        </copy>
+    	
+        <copy todir="${deploy.dir}" preservelastmodified="true">
+    	    <fileset dir="${resources.dir}">
+    	      <include name="**/*.properties"/>
+    	     </fileset>
+    	</copy>  
+
+    </target>
+
+
+
+
+    <target name="clean" description="Clean output directories">
+        <delete>
+            <fileset dir="${build.dir}">
+                <include name="**/*.class"/>
+            </fileset>
+            <fileset dir="${build.dir}">
+                <include name="**/*.properties"/>
+            </fileset>
+            <fileset dir="${build.dir}">
+                  <include name="**/*.xml"/>
+            </fileset>
+        </delete>
+
+        <delete>
+            <fileset dir="${deploy.dir}">
+                <include name="**"/>
+            </fileset>
+        </delete>
+
+    </target>
+  
+
+</project>

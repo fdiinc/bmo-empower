@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_BULLET_LN"><RECORD-COUNT>3</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_BULLET_LN-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_BULLET_LN-TYPE></DATATYPES><KEYS><U_BULLET_LN-KEY><NAME>lnkey</NAME><CONSTRAINT_NAME>PK_U_BULLET_LN</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_BULLET_LN-KEY></KEYS><INDEXES><U_BULLET_LN-INDEX><NAME>PK_U_BULLET_LN</NAME><COLUMN_NAME>lnkey</COLUMN_NAME></U_BULLET_LN-INDEX></INDEXES></TABLEMETADATA>

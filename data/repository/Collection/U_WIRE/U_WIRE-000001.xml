@@ -1,0 +1,15 @@
+<U_WIRE>
+    <U_WIRE-ROW>
+        <LNKEY>123456</LNKEY>
+        <WIRE_DT>2014-01-01T00:00:00.0</WIRE_DT>
+    </U_WIRE-ROW>
+    <U_WIRE-ROW>
+        <LNKEY>234567</LNKEY>
+        <WIRE_DT>2014-01-01T00:00:00.0</WIRE_DT>
+    </U_WIRE-ROW>
+    <U_WIRE-ROW>
+        <LNKEY>345678</LNKEY>
+        <WIRE_DT>2014-01-01T00:00:00.0</WIRE_DT>
+    </U_WIRE-ROW>
+</U_WIRE>
+

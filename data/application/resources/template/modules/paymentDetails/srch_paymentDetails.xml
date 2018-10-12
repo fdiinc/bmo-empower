@@ -1,0 +1,158 @@
+<searchConfiguration id="searchPaymentDetails">
+    <xformName>searchPaymentDetails</xformName>
+    <xquery>
+        <![CDATA[
+                import module namespace paymentDetailsSearch = 'paymentDetailsSearch' at '/APPLICATIONS/bmoempower/resources/xqueries/search_paymentDetails/search.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := paymentDetailsSearch:getPaymentDetailsResults($currentuser, $first, $last, $input)
+                return $results
+                ]]>
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>loanNumber</name>
+                <label>Loan #</label>
+                <whereclauseparameter>$elem/loanNumber</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+		<searchResultItem>
+            <name>loan_number</name>
+            <label>Loan #</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>last_name</name>
+            <label>Last Name</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>first_name</name>
+            <label>First Name</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>middle_name</name>
+            <label>Middle Name</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>ssn_or_tin</name>
+            <label>SSN/TIN</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>birth_date</name>
+            <label>Birth Date</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>gmi_monitor</name>
+            <label>GMI Monitor</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>ethnicity</name>
+            <label>Ethnicity</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>am_ind_ak</name>
+            <label>AM_IND_AK</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>asian</name>
+            <label>Asian</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>african_am</name>
+            <label>African Am.</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>hisp_pacisl</name>
+            <label>Hisp PACISL</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>white</name>
+            <label>White</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>not_prov</name>
+            <label>Not Prov</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>not_applic</name>
+            <label>Not Applic</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>sex</name>
+            <label>Sex</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>borr_total_income</name>
+            <label>Borr Total Income</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>app_efx_score</name>
+            <label>App EFX Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>app_tu_score</name>
+            <label>App TU Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>app_xpn_score</name>
+            <label>App XPN Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp_efx_score</name>
+            <label>CoApp EFX Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp_tu_score</name>
+            <label>CoApp TU Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp_xpn_score</name>
+            <label>CoApp XPN Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp2_efx_score</name>
+            <label>CoApp2 EFX Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp2_tu_score</name>
+            <label>CoApp2 TU Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp2_xpn_score</name>
+            <label>CoApp2 XPN Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp3_efx_score</name>
+            <label>CoApp3 EFX Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp3_tu_score</name>
+            <label>CoApp3 TU Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp3_xpn_score</name>
+            <label>CoApp3 XPN Score</label>
+        </searchResultItem>
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>

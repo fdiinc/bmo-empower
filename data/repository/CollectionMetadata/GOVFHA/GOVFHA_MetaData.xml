@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="GOVFHA"><RECORD-COUNT>20414</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><GOVFHA-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></GOVFHA-TYPE><GOVFHA-TYPE><NAME>SECTOFACT</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></GOVFHA-TYPE><GOVFHA-TYPE><NAME>ALLOWREPAIRS</NAME><COLNO>3</COLNO><DATATYPE>float</DATATYPE><JDBC-DATATYPE CODE="8">DOUBLE</JDBC-DATATYPE></GOVFHA-TYPE></DATATYPES><KEYS><GOVFHA-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK__GOVFHA__451F3D2B</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></GOVFHA-KEY></KEYS><INDEXES><GOVFHA-INDEX><NAME>PK__GOVFHA__451F3D2B</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></GOVFHA-INDEX></INDEXES></TABLEMETADATA>

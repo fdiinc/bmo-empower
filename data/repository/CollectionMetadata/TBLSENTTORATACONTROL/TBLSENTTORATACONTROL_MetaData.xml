@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="DBO" TABLENAME="TBLSENTTORATACONTROL"><RECORD-COUNT>1</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><TBLSENTTORATACONTROL-TYPE><NAME>LASTSENT</NAME><COLNO>1</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></TBLSENTTORATACONTROL-TYPE></DATATYPES><KEYS><TBLSENTTORATACONTROL-KEY><NAME>LastSent</NAME><CONSTRAINT_NAME>PK_tblSentToRataControl</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLSENTTORATACONTROL-KEY></KEYS><INDEXES><TBLSENTTORATACONTROL-INDEX><NAME>PK_tblSentToRataControl</NAME><COLUMN_NAME>LastSent</COLUMN_NAME></TBLSENTTORATACONTROL-INDEX></INDEXES></TABLEMETADATA>

@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_EXTRANET_TC_VERSION"><RECORD-COUNT>21</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_EXTRANET_TC_VERSION-TYPE><NAME>VERSIONNUMBER</NAME><COLNO>1</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_EXTRANET_TC_VERSION-TYPE><U_EXTRANET_TC_VERSION-TYPE><NAME>FILEPATH</NAME><COLNO>2</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_EXTRANET_TC_VERSION-TYPE><U_EXTRANET_TC_VERSION-TYPE><NAME>TYPE</NAME><COLNO>3</COLNO><DATATYPE>char(1)</DATATYPE><JDBC-DATATYPE CODE="1">CHAR</JDBC-DATATYPE></U_EXTRANET_TC_VERSION-TYPE><U_EXTRANET_TC_VERSION-TYPE><NAME>ISCURRENT</NAME><COLNO>4</COLNO><DATATYPE>bit</DATATYPE><JDBC-DATATYPE CODE="-7">BIT</JDBC-DATATYPE></U_EXTRANET_TC_VERSION-TYPE></DATATYPES><KEYS/><INDEXES/></TABLEMETADATA>

@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="MKTCOMPUTED"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><MKTCOMPUTED-TYPE><NAME>DATECOMPUTED</NAME><COLNO>1</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></MKTCOMPUTED-TYPE><MKTCOMPUTED-TYPE><NAME>LASTMOD</NAME><COLNO>2</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></MKTCOMPUTED-TYPE></DATATYPES><KEYS/><INDEXES/></TABLEMETADATA>

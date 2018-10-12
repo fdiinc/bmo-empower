@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_ONBASE"><RECORD-COUNT>63876</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_ONBASE-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_ONBASE-TYPE><U_ONBASE-TYPE><NAME>NON_ORIG_IMG_DTE</NAME><COLNO>2</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></U_ONBASE-TYPE><U_ONBASE-TYPE><NAME>COVER_PRINTED_BY</NAME><COLNO>3</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_ONBASE-TYPE></DATATYPES><KEYS><U_ONBASE-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK_U_ONBASE</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_ONBASE-KEY></KEYS><INDEXES><U_ONBASE-INDEX><NAME>PK_U_ONBASE</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></U_ONBASE-INDEX></INDEXES></TABLEMETADATA>

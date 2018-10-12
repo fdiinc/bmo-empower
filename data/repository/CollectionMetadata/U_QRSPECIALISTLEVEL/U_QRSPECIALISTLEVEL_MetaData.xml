@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_QRSPECIALISTLEVEL"><RECORD-COUNT>80</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_QRSPECIALISTLEVEL-TYPE><NAME>LOANSPECIALIST</NAME><COLNO>1</COLNO><DATATYPE>nvarchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_QRSPECIALISTLEVEL-TYPE><U_QRSPECIALISTLEVEL-TYPE><NAME>LEVELID</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_QRSPECIALISTLEVEL-TYPE><U_QRSPECIALISTLEVEL-TYPE><NAME>PANICMODE</NAME><COLNO>3</COLNO><DATATYPE>bit</DATATYPE><JDBC-DATATYPE CODE="-7">BIT</JDBC-DATATYPE></U_QRSPECIALISTLEVEL-TYPE></DATATYPES><KEYS/><INDEXES/></TABLEMETADATA>

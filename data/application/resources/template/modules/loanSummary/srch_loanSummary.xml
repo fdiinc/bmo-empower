@@ -1,0 +1,161 @@
+<searchConfiguration id="searchLoanSummary">
+    <xformName>SearchLoanSummary</xformName>
+    <xquery>
+        <![CDATA[
+                import module namespace loanSummarySearch = 'loanSummarySearch' at '/APPLICATIONS/bmoempower/resources/xqueries/search_LoanSummary/search.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := loanSummarySearch:getLoanSummarySearchResults($currentuser, $first, $last, $input)
+              
+                return 
+			$results
+                ]]>
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>loanNumber</name>
+                <label>Loan #</label>
+                <whereclauseparameter>$elem/loanNumber</whereclauseparameter>
+                <fullText>false</fullText>
+            </searchField>
+            <searchField>
+                <name>lastName</name>
+                <label>Last Name</label>
+                <whereclauseparameter>$elem/borr_last</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>firstName</name>
+                <label>FirstName</label>
+                <whereclauseparameter>$elem/borr_first</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>SSN</name>
+                <label>SSN/ITIN</label>
+                <whereclauseparameter>$elem/SSN_ITIN</whereclauseparameter>
+                <fullText>false</fullText>
+            </searchField>
+            <searchField>
+                <name>originatorBanker</name>
+                <label>Originator/Banker</label>
+                <whereclauseparameter>$elem/intName</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+        <searchFieldRow>
+            <searchField>
+                <name>propStreetAddress</name>
+                <label>Property Street Address</label>
+                <whereclauseparameter>$elem/prop_addr</whereclauseparameter>
+                <fullText>false</fullText>
+            </searchField>
+            <searchField>
+                <name>propStreetAddress2</name>
+                <label>Property Street Address 2</label>
+                <whereclauseparameter>$elem/prop_addr2</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>propCity</name>
+                <label>Property City</label>
+                <whereclauseparameter>$elem/prop_city</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>propState</name>
+                <label>Property State</label>
+                <whereclauseparameter>$elem/prop_state</whereclauseparameter>
+                <fullText>false</fullText>
+            </searchField>
+            <searchField>
+                <name>propZip</name>
+                <label>Property Postal/Zip Code</label>
+                <whereclauseparameter>$elem/prop_zip</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+		<searchResultItem>
+			<name>loan_number</name>
+			<label>Loan #</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_first_name</name>
+			<label>Borrower First Name</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_middle_name</name>
+			<label>Borrower Middle Name</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_last_name</name>
+			<label>Borrower Last Name</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_suffix</name>
+			<label>Borrower Suffix</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>which_borrower</name>
+			<label>Which Borrower</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_ssn_or_tin</name>
+			<label>Borrower SSN/ITIN</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_birth_date</name>
+			<label>DOB (if available)</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>aka</name>
+			<label>AKA</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_addr</name>
+			<label>Property Street Address</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_addr2</name>
+			<label>Property Street Address 2</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_city</name>
+			<label>Property City</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_state</name>
+			<label>Property State</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_zip</name>
+			<label>Property Postal/Zip Code</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>int_name</name>
+			<label>Originator/Banker</label>
+		</searchResultItem>
+
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>

@@ -1,0 +1,7 @@
+<transformationConfiguration id="trans_paymentDetails" >
+	<schemaIDs>trans_paymentDetails</schemaIDs>
+	<styleURI>dds://DOMAIN=resource/xslt/payments.xsl</styleURI>
+	<pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+	<xquery>expand.xml</xquery>
+	<pdf>false</pdf>
+</transformationConfiguration>

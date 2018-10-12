@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="MIDAREFID"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><MIDAREFID-TYPE><NAME>REFCODEID</NAME><COLNO>1</COLNO><DATATYPE>varchar(4)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></MIDAREFID-TYPE><MIDAREFID-TYPE><NAME>REFCODEDESC</NAME><COLNO>2</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></MIDAREFID-TYPE><MIDAREFID-TYPE><NAME>LASTMOD</NAME><COLNO>3</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></MIDAREFID-TYPE></DATATYPES><KEYS><MIDAREFID-KEY><NAME>REFCODEID</NAME><CONSTRAINT_NAME>PK_MIDAREFID</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></MIDAREFID-KEY></KEYS><INDEXES><MIDAREFID-INDEX><NAME>PK_MIDAREFID</NAME><COLUMN_NAME>REFCODEID</COLUMN_NAME></MIDAREFID-INDEX></INDEXES></TABLEMETADATA>

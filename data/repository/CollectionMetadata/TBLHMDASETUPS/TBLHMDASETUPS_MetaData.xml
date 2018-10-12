@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="DBO" TABLENAME="TBLHMDASETUPS"><RECORD-COUNT>1</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><TBLHMDASETUPS-TYPE><NAME>SETUPTYPE</NAME><COLNO>1</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBLHMDASETUPS-TYPE><TBLHMDASETUPS-TYPE><NAME>SETUPITEM</NAME><COLNO>2</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBLHMDASETUPS-TYPE><TBLHMDASETUPS-TYPE><NAME>SETUPVALUE</NAME><COLNO>3</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBLHMDASETUPS-TYPE></DATATYPES><KEYS><TBLHMDASETUPS-KEY><NAME>SetupType</NAME><CONSTRAINT_NAME>PK_tblHmdaSetups</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLHMDASETUPS-KEY><TBLHMDASETUPS-KEY><NAME>SetupItem</NAME><CONSTRAINT_NAME>PK_tblHmdaSetups</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLHMDASETUPS-KEY></KEYS><INDEXES><TBLHMDASETUPS-INDEX><NAME>PK_tblHmdaSetups</NAME><COLUMN_NAME>SetupType, SetupItem</COLUMN_NAME></TBLHMDASETUPS-INDEX></INDEXES></TABLEMETADATA>

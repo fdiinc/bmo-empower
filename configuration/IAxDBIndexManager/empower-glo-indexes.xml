@@ -1,0 +1,2246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<manifest databaseName="bmoglo">
+	<librarychild path="/DATA/bmoglo/Collection/BORRINFO">
+		<indexes>
+			<multipathindex name="Multi-Path index" concurrent="false" compressed="false" unique="false" version-info="false" path="/*/*" storeversioninfo="false" lowercase="true" stopwords="false">
+				<subpath xpath="BORR_LAST" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="BORR_FIRST" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="BORR_PHONE" scoreboost="1.0" type="string" valuecomparison="true" />
+				<subpath xpath="LNKEY" scoreboost="1.0" type="string" valuecomparison="true" sortable="true"/>
+				<subpath xpath="BORR_SSN" scoreboost="1.0" type="string" valuecomparison="true" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="BORR_AKA" scoreboost="1.0" type="string" valuecomparison="true"/>
+				<subpath xpath="BORR_HOUSENUM" scoreboost="1.0" type="string" valuecomparison="true"/>
+				<subpath xpath="BORR_APTNUM" scoreboost="1.0" type="string" valuecomparison="true"/>
+				<subpath xpath="BORR_BIRTHDATE" scoreboost="1.0" type="string" valuecomparison="true"/>
+			</multipathindex>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/CALC">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/CODES">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<pathvalueindex name="APPSTATN" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/APPSTATN&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/CURRADDR">
+		<indexes>
+			<multipathindex name="Multi-Path index" concurrent="false" compressed="false" unique="false" version-info="false" path="/*/*" storeversioninfo="false" lowercase="true" stopwords="false">
+				<subpath xpath="BORR_ADDR" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="BORR_ADDR2" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="BORR_CSZ" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="LNKEY" scoreboost="1.0" type="string" valuecomparison="true" sortable="true"/>
+			</multipathindex>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/DBLOCKS">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<pathvalueindex name="USER2KEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/USER2KEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/DOCGEN">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/EVNTDATE">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<pathvalueindex name="DENIED" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/DENIED&lt;STRING>"/>
+			<pathvalueindex name="WITHDRAWN" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/WITHDRAWN&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/EVENTS">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/FANNIEDU">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/FHAVACLC">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/GLO_FILE_DATA">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/GOVTDOCS">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/HUDAPP">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/INCOME">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/INTRVIEW">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/LPLOAN">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/MARKET">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/MIDANET">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/MORNET">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/MTGTERMS">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<pathvalueindex name="MATURITYDATE" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/MATURITYDATE&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/NOTEPAD">
+		<indexes>
+			<multipathindex name="Multi-Path index" concurrent="false" compressed="false" unique="false" version-info="false" path="/*/*" storeversioninfo="false" lowercase="true" stopwords="true">
+				<subpath xpath="LNKEY" scoreboost="1.0" type="string" valuecomparison="true"/>
+				<subpath xpath="NOTEDATE" scoreboost="1.0" type="string" valuecomparison="true" sortable="true"/>
+			</multipathindex>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/NOTEEXP">
+		<indexes>
+			<multipathindex name="Multi-Path index" concurrent="false" compressed="false" unique="false" version-info="false" path="/*/*" storeversioninfo="false" lowercase="true" stopwords="true">
+				<subpath xpath="LNKEY" scoreboost="1.0" type="string" valuecomparison="true"/>
+				<subpath xpath="IDX" scoreboost="1.0" type="string" valuecomparison="true"/>
+			</multipathindex>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/PLANDAT">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/PROPINFO">
+		<indexes>
+			<multipathindex name="Multi-Path index" concurrent="false" compressed="false" unique="false" version-info="false" path="/*/*" storeversioninfo="false" lowercase="true" stopwords="false">
+				<subpath xpath="PROP_ADDR" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="PROP_CITY" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="PROP_COUNTY" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="PROP_STATE" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+			</multipathindex>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/TILDATA">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/UCODES">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/UCODES4">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/URLADD">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/URLASPEC">
+		<indexes>
+			<multipathindex name="Multi-Path index" concurrent="false" compressed="false" unique="false" version-info="false" path="/*/*" storeversioninfo="false" lowercase="true" stopwords="true">
+				<subpath xpath="LNKEY" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+				<subpath xpath="IDX" scoreboost="1.0" type="string" fulltextsearch="true" includedescendants="true"/>
+			</multipathindex>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_APP_DEPOSIT_DISPOSITION">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_APR_FEE_RESULTS">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_CLOSINGINFO">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_CLOSINGINFO2">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_COUNTER">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_EXTRANET">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_FRAUD">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_HMDA">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_INVESTOR">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_MISCTERMS">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+ 			<pathvalueindex name="APP_RECD_DATE" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/APP_RECD_DATE&lt;STRING>"/>
+ 			<pathvalueindex name="WITHDRAWN_DATE" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/WITHDRAWN_DATE&lt;STRING>"/>
+            <pathvalueindex name="BROKER_NUMBER" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/BROKER_NUMBER&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_MISCTERMS2">
+		<indexes>
+			<multipathindex name="Multi-Path index" concurrent="false" compressed="false" unique="false" version-info="false" path="/*/*" storeversioninfo="false" lowercase="true" stopwords="true">
+				<subpath xpath="LNKEY" scoreboost="1.0" type="string" valuecomparison="true"/>
+				<subpath xpath="WHICHBORR" scoreboost="1.0" type="string" valuecomparison="true"/>
+			</multipathindex>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_MISCTERMS3">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_MISCTERMS4">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_RATIOS">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_TRACKING">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_WIRE">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+	<librarychild path="/DATA/bmoglo/Collection/U_WITHDRAW_TRACKING">
+		<indexes>
+			<pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false" version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+			<librarynameindex name="Library Name Index" concurrent="false" compressed="false" unique="false" version-info="false"/>
+		</indexes>
+	</librarychild>
+
+
+<!-- These are indexes to support the purge process - 319 tables indexed by LNKEY -->
+
+    <librarychild path="/DATA/bmoglo/Collection/ALIMONY">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/APPINTELL">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/ARMDISC">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/AUTO_OWN ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/BORRINFO ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/BORRMTRX ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/BORRVESTINGSTRUCT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CALC ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CALC100">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CALC101">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CBRDATA">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CBRHISTORY ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CBRSTAT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CDU_EXTENDED ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CHKSAV ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CODES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CONSDATA ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CREDHIST ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CREDRPTS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CREDSCORE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CREDSTATUS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CURRADDR ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/CURREMPL ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DBLOCKS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DEBTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DECLARES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DEEDDATA ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DEEDDATA2">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DEPPURCH ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DOCGEN ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DOCGEN3">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DOCMEMO1 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DOCMEMO3 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DOC_ETC">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DUFINDINGSDOCLVLS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DUFINDINGSMAIN ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DUFINDINGSMSGDTL ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DUFINDINGSMSGMAIN">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DUFINDINGSSFCODES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DURESULT ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/DU_HIST_RESULTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/ESS_UNLOCKLOANHIST ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/EVALPLAN ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/EVENTS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/EVNTDATE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FACT_ACT ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FANNIEDU ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FEECATS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FEES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FG_ADJUSTMENTS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FG_REDFLAGS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FHACALC5 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FHAVACLC ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FHA_TRANS_SUMM ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FIELDPROPERTIES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FLOOD">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FORMADDR ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FRAUDGUARD ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FRAUD_ALT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/FRAUD_ALT_ALERT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GFEDATA">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GFEFEEHIST ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GFEFEEHISTDETAIL ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GFEFEES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GFETRADEOFF">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GINNIE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GOVFHA ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GOVFHAVA ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GOVTDOCS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/GOVVA">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/HUD1A_15 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/HUDAPP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/HUDARR10 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/HUD_DOCS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/INCOME ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/INITESCROW ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/INITESCROW50 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/INTRM_AMSCHED">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/INTRM_BILLPROC ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/INTRM_PAYPOST">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/INTRM_SERV ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/INTRVIEW ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/ITEM_DOC ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/JOB_EXP">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/JUDGELIENS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/LOANHIST ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/LOGPRINTDOC">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/LPBORR ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/LPCAIVRS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/LPCONTCT ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/LPFHAVA">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/LPLOAN ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/LPPROPTY ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MARKET ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MERSDATA ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MIDANET">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MISCASST ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MI_PREMIUMS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MI_RENEWALS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MORNET ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MORTINS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/MTGTERMS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/NOTEEXP">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/NOTEMEMO ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/NOTEPAD">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/OTHRINCOME ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/OTHRINFO ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/OTH_ASST ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/OVERRIDE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PLANDAT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PLANDAT3 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PLANDAT6 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PRESMHE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PRES_MHE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PREV_EMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PRICADJ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PRICESTATUS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PRICESTIPS1">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PRICETBL ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PROPCNST ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PROPINFO ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PROPREFI ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/PROVIDERS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RATIOS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RDXCOMNT2">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RDXCOMNT5">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RDXCOMNT6">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RDXCOMNT7">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/REGULAT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/REGULAT4 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RE_OWNED ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RLADDRS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RLDEBTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/RLEMPLS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/ROLODEX">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/SECMORT_NOTE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/SNAPSHOT ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/STAMPTIME">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/STOCKS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TAXDOCS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLAUTOWITHDRAWHIST">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLCATCHACCESSUPDATEROWS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLDAILYACTIVITYRATELOCKPRICEDETAIL">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLHMDASELFMONLISTBASE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLLOANSTOGATHER ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLREGBDETAIL">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLREPRINTINCOMPLETES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLTOUCHESBYBROKER ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TBLTOUCHESBYBROKERYRROLL ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TILDATA">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/TRANSUMM ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/UCODES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/UCODES2">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/UCODES3">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/UCODES4">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/URLADD ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/URLADD10 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/URLADD3">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/URLADD6">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/URLASPEC ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/URLA_DETAILS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_4506T">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_AFFORDABLE_SECONDS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_APPRAISALS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_APPRAISAL_ANALYSIS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_APPROVALS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_APPROVAL_COVER_LETTER">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_APP_DEPOSIT_DISPOSITION">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_APR_FEE_RESULTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_ASSIGNMENTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_AUTOSTIPRETAIL ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_AUTOSTIP_TEST_RES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_BORRMTRX ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_BORR_VEST">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_BROKERSTATEDFEES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_BULLET_CRIT_TEMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_BULLET_LN">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CHECKLISTS_ADDLDATA">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CHECKLISTS_ITEMS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CHECKLISTS_MANUAL_ITEMS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CHECKORDERS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CLOSINGINFO">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CLOSINGINFO2 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CLOSINGINFO_LEGAL">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CLOSINGPAYOFFS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CLOSINGRESERVATION ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_COMPLIANCE_CAPTURE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CONDITIONS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_COND_TEMP">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CONSTRUCTIONLNS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_COUNTER">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CREDHIST_TEMP">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CREDITGRADE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CREDITSCORE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_CREDIT_SUMM">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEBTS_TEMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEBT_CHANGES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEBT_DELINQUENCY ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEBT_MCONV ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEBT_RATINGS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEBT_SUMM">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEBT_TLU ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEBT_VARIANCE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DECLINE_REASONS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DECL_REAS_PRINTED">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DEFICIENCIES_LOG ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DOCS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_DYNAFORM_POLICY_PROC_LOG ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_EMAIL_QUEUE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_ESCROW_AGREEMENT ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_EXCEPTIONTRACKING">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_EXCEPTIONTRACKINGMKTCR ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_EXTRANET ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_FEES_ADDENDUM">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_FLOOD_INS_WKSHT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_FRAUD">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_FRAUD_CONFIRMED">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_FRAUD_CONFIRMED_HISTORY">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_FRAUD_HISTORY">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_FRAUD_SUSPECT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_FRAUD_SUSPECT_HISTORY">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFECHANGEDCIRCUMSTANCE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFEFEEHISTDETAIL_NS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFEFEEHIST_NS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFEFEEREVIEWHISTDETAIL ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFELOANDATAHIST">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFE_HUD_RECONCILE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFE_HUD_RECONCIL_DETAIL">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_GFE_THIRDPARTY ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_HMDA ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_HMDA_COMMENTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_HMDA_DECERTS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_HMDA_SELF_MON">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_HMDA_VALIDATIONS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_IMAGELITETOPDF_QUE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_IMAGEOUTPUT_LIST ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_INCOME_COMMENTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_INCOME_HOUSEHOLD ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_INTRM_DISBURSEMENTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_INTRM_SERV_ARCHIVE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_INVESTOR ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_INVESTOR_SALES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_JUDGELIENS_TEMP">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_JUDGE_SUMM ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_LDPGSA ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_LENDER ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_LENDER_CONFIG">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_LOCATION ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MARITAL_PROP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MIFLEX_LTVADJ_TEMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MIFLEX_PRICEADJ_TEMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MIFLEX_PRODTYPE_TEMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MISCMEMO_1 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MISCTERMS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MISCTERMS2 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MISCTERMS3 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MISCTERMS4 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_MI_EMPLOYEE_FROM ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_NAME_AFFIDAVIT ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_NOTIFICATIONS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_NTB_DATA ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_NTB_EVALS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_ONBASE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_PF_CONTACT_HIST">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_PRICEADJ ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_PRICEADJ_MANUAL">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_PROJECT">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_PST">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_QRPREFUNDADDONS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_QRPREFUNDRESPONSES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_QRRESPONSES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_QRTIMES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RATELOCKS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RATELOCKS_INVESTOR ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RATELOCKS_RIGID">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RATE_PRICE_MATRIX_COL">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RATE_PRICE_MATRIX_SEL">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RATE_PRICE_SELECTED">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RATIOS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_REFI_TYPE">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RELEASES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_REPRICEORIDES_TEMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_REPRICE_ARRAY">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_REPRICE_TEMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_RESUBS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_STAMPTIME">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_STAMPTIME2 ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_STAMPTIME_DELETED">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_STAMPTIME_TEMP ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_SUBORDINATIONS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_TAXES_WORKSHEET">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_TEMP_PRICADJ ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_THREEDAYPKG">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_TIMEINLOAN ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_TRACKING ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_TRACK_DOCS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_TRACK_TRADES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_TRADEDEPTH_SUMM">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_TRANSFERS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_UDM_TRACKING ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_UNLOCK_TRACKING">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_UPLOADILSWIRES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_UPLOADOSIWIRES ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_VA_RACOLD">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_UPLOADUSERMAINTLOG ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_USDA_INCOME_WORKSHEET">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_VA_ADDITIONAL_INFO ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_WHAT_IF_DEBTS">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_WHAT_IF_INCOME ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_WHAT_IF_MISC ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_WIRE ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_WITHDRAW_TRACKING">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/U_XML_DATAFILES">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/VA_FHA_ANALS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/VA_LOAN_SUMM ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/VA_LOAN_SUM_BS ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/VESTINGINFO">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+    <librarychild path="/DATA/bmoglo/Collection/WORKFLOW ">
+        <indexes>
+            <pathvalueindex name="LNKEY" concurrent="true" compressed="false" unique="false"
+                version-info="false" path="/*/*/LNKEY&lt;STRING>"/>
+        </indexes>
+    </librarychild>
+
+
+
+</manifest>

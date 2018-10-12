@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="TRANCLINUMS"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><TRANCLINUMS-TYPE><NAME>LOANNUM</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TRANCLINUMS-TYPE></DATATYPES><KEYS><TRANCLINUMS-KEY><NAME>LOANNUM</NAME><CONSTRAINT_NAME>PK_TRANCLINUMS</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TRANCLINUMS-KEY></KEYS><INDEXES><TRANCLINUMS-INDEX><NAME>PK_TRANCLINUMS</NAME><COLUMN_NAME>LOANNUM</COLUMN_NAME></TRANCLINUMS-INDEX></INDEXES></TABLEMETADATA>

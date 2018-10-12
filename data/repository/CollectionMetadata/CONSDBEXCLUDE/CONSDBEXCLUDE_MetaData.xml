@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="CONSDBEXCLUDE"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><CONSDBEXCLUDE-TYPE><NAME>DBNUM</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></CONSDBEXCLUDE-TYPE><CONSDBEXCLUDE-TYPE><NAME>LASTMOD</NAME><COLNO>2</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></CONSDBEXCLUDE-TYPE></DATATYPES><KEYS><CONSDBEXCLUDE-KEY><NAME>DBNUM</NAME><CONSTRAINT_NAME>PK_CONSDBEXCLUDE</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></CONSDBEXCLUDE-KEY></KEYS><INDEXES><CONSDBEXCLUDE-INDEX><NAME>PK_CONSDBEXCLUDE</NAME><COLUMN_NAME>DBNUM</COLUMN_NAME></CONSDBEXCLUDE-INDEX></INDEXES></TABLEMETADATA>

@@ -1,0 +1,7 @@
+<transformationConfiguration id="trans_Notepad" >
+	<schemaIDs>trans_Notepad</schemaIDs>
+	<styleURI>dds://DOMAIN=resource/xslt/chainofcustody.xsl</styleURI>
+	<pipelineURI>dds://DOMAIN=resource/xproc/display.xpl</pipelineURI>
+	<xquery />
+	<pdf>false</pdf>
+</transformationConfiguration>

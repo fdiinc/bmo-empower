@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="ESS_APPRPROG"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><ESS_APPRPROG-TYPE><NAME>CODE</NAME><COLNO>1</COLNO><DATATYPE>varchar(15)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></ESS_APPRPROG-TYPE><ESS_APPRPROG-TYPE><NAME>PROG_DESC</NAME><COLNO>2</COLNO><DATATYPE>varchar(50)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></ESS_APPRPROG-TYPE><ESS_APPRPROG-TYPE><NAME>LASTMOD</NAME><COLNO>3</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></ESS_APPRPROG-TYPE></DATATYPES><KEYS><ESS_APPRPROG-KEY><NAME>CODE</NAME><CONSTRAINT_NAME>PK_ESS_APPRPROG</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></ESS_APPRPROG-KEY></KEYS><INDEXES><ESS_APPRPROG-INDEX><NAME>PK_ESS_APPRPROG</NAME><COLUMN_NAME>CODE</COLUMN_NAME></ESS_APPRPROG-INDEX></INDEXES></TABLEMETADATA>

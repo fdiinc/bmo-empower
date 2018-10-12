@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="DBO" TABLENAME="TBLXPEDITELISTSAES"><RECORD-COUNT>3</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><TBLXPEDITELISTSAES-TYPE><NAME>XPLISTID</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></TBLXPEDITELISTSAES-TYPE><TBLXPEDITELISTSAES-TYPE><NAME>AECODE</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></TBLXPEDITELISTSAES-TYPE></DATATYPES><KEYS><TBLXPEDITELISTSAES-KEY><NAME>XpListId</NAME><CONSTRAINT_NAME>PK_tblXpediteListsAEs</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLXPEDITELISTSAES-KEY><TBLXPEDITELISTSAES-KEY><NAME>AeCode</NAME><CONSTRAINT_NAME>PK_tblXpediteListsAEs</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLXPEDITELISTSAES-KEY></KEYS><INDEXES><TBLXPEDITELISTSAES-INDEX><NAME>PK_tblXpediteListsAEs</NAME><COLUMN_NAME>XpListId, AeCode</COLUMN_NAME></TBLXPEDITELISTSAES-INDEX></INDEXES></TABLEMETADATA>

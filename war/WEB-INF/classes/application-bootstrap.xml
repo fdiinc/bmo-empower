@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bootstrap>
+  <name>bmoempower</name>
+  <mainStore class="XDBStore">
+    <alias>main</alias>
+    <defaultStoreUser class="XDBStoreUser">
+      <id>Administrator</id>
+      <encryptedPassword>GomZLsdkFqJpd8oNOz9gIGNFRr7ckLYztyK4BuEEjhjveBRY8fFtVQf+OzmYEc8XoQRgT3LhN+PpdvvtsEwdxQIBH8YAJrim3bMwDwjKKhLMDLgVO4NK+U80y3rKXG9Wa9i+iCk1EErJgRL7f6KjZfqNf8PbHClmofo5W63+qu4=</encryptedPassword>
+    </defaultStoreUser>
+    <bootstrap>xhive://localhost:1235#empower</bootstrap>
+    <databaseName>bmoempower</databaseName>
+    <cachePages>10000</cachePages>
+  </mainStore>
+  <defaultURIResolver class="DDSURIResolver" />
+  <publicKeyPath>./DDSPublicKey.dat</publicKeyPath>
+  <privateKeyPath>./DDSPrivateKey.dat</privateKeyPath>
+  <jceSettings>
+    <crypto>
+      <transformation>RSA/ECB/OAEPWithSHA-1AndMGF1Padding</transformation>
+      <provider></provider>
+    </crypto>
+    <secureRandom>
+      <algorithm>SHA1PRNG</algorithm>
+      <provider></provider>
+    </secureRandom>
+  </jceSettings>
+</bootstrap>

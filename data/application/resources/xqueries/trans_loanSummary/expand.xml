@@ -1,0 +1,13 @@
+<xquery xmlns="http://www.emc.com/documentum/xml/dds">
+    <expression><![CDATA[
+
+        import module namespace loanSummary = 'loanSummary' at '/APPLICATIONS/bmoempower/resources/xqueries/trans_loanSummary/loanSummary.xqy';
+
+        declare variable $loan_number as xs:string external;
+
+        loanSummary:getloanSummaryResults($loan_number)
+
+
+
+    ]]></expression> 
+</xquery>

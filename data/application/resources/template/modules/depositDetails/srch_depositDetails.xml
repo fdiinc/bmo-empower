@@ -1,0 +1,47 @@
+<searchConfiguration id="searchDepositDetails">
+    <xformName>searchDepositDetails</xformName>
+    <xquery>
+        <![CDATA[
+                import module namespace depositDetailsSearch = 'depositDetailsSearch' at '/APPLICATIONS/bmoempower/resources/xqueries/search_depositDetails/search.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := depositDetailsSearch:getDepositDetailsResults($currentuser, $first, $last, $input)
+                return $results
+                ]]>
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>loanNumber</name>
+                <label>Loan #</label>
+                <whereclauseparameter>$elem/loanNumber</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+		<searchResultItem>
+            <name>loan_number</name>
+            <label>Loan #</label>
+        </searchResultItem>
+
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>

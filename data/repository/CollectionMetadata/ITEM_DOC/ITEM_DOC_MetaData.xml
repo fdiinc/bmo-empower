@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="ITEM_DOC"><RECORD-COUNT>89175</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><ITEM_DOC-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></ITEM_DOC-TYPE><ITEM_DOC-TYPE><NAME>TYPE_OF_LOAN</NAME><COLNO>2</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></ITEM_DOC-TYPE><ITEM_DOC-TYPE><NAME>ITEM_FIN_FEE</NAME><COLNO>3</COLNO><DATATYPE>char(1)</DATATYPE><JDBC-DATATYPE CODE="1">CHAR</JDBC-DATATYPE></ITEM_DOC-TYPE></DATATYPES><KEYS><ITEM_DOC-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK__ITEM_DOC__5EDF0F2E</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></ITEM_DOC-KEY></KEYS><INDEXES><ITEM_DOC-INDEX><NAME>PK__ITEM_DOC__5EDF0F2E</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></ITEM_DOC-INDEX></INDEXES></TABLEMETADATA>

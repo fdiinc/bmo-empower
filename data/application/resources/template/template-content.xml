@@ -1,0 +1,593 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<content xmlns:xi='http://www.w3.org/2001/XInclude' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../xsd/template-content.xsd'>
+    <dataset>
+        <name>bmoempower</name>
+    </dataset>
+    <dataset>
+        <name>metadata</name>
+    </dataset>
+
+    <hierarchy>
+        <title>bmoempower</title>
+        <node>
+            <id>bmoempower</id>
+            <label>InfoArchive</label>
+            <icon>allapplications16</icon>
+            <chainOfCustody>false</chainOfCustody>
+            <contentViewSettings>
+                <contentViewSetting refid='trans_loanSummary'></contentViewSetting>
+                <contentViewSetting refid='trans_Notepad'></contentViewSetting>
+                <contentViewSetting refid='trans_depositDetails'></contentViewSetting>
+               <contentViewSetting refid='trans_paymentDetails'></contentViewSetting>
+                <contentViewSetting refid='trans_auditLogDetails'></contentViewSetting>
+            </contentViewSettings>
+
+            <searchSettings>
+                <searchSetting name='Loan Summary' refid='searchLoanSummary'></searchSetting>
+                <searchSetting name='Notepad' refid='searchNotepad'></searchSetting>
+                <searchSetting name='Deposit Details' refid='searchDepositDetails'></searchSetting>
+                <searchSetting name='Payment Details' refid='searchPaymentDetails'></searchSetting>
+ 
+                <!-- <searchSetting name="Audit Logs" refid="searchAuditLogs"/> -->
+            </searchSettings>
+        </node>
+    </hierarchy>
+
+    <transformationConfigurations>
+        <transformationConfiguration id='displayDefault'>
+            <schemaIDs></schemaIDs>
+            <styleURI>dds://DOMAIN=resource/xslt/xml-verbatim.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+            <xquery>expand.xml</xquery>
+            <pdf>false</pdf>
+        </transformationConfiguration>
+        <transformationConfiguration id='displayURIDefault'>
+            <schemaIDs></schemaIDs>
+            <styleURI>dds://DOMAIN=resource/xslt/xml-verbatim.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/display.xpl</pipelineURI>
+            <xquery></xquery>
+            <pdf>false</pdf>
+        </transformationConfiguration>
+        <transformationConfiguration id='empty'>
+            <schemaIDs>empty.xsd</schemaIDs>
+            <styleURI>dds://DOMAIN=resource/xslt/empty.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/display.xpl</pipelineURI>
+            <xquery></xquery>
+            <pdf>false</pdf>
+        </transformationConfiguration>
+        <transformationConfiguration id='displayChainOfCustodyInfo'>
+            <schemaIDs>chainofcustody.xsd</schemaIDs>
+            <styleURI>dds://DOMAIN=resource/xslt/chainofcustody.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/display.xpl</pipelineURI>
+            <xquery></xquery>
+            <pdf>false</pdf>
+        </transformationConfiguration>
+
+		<transformationConfiguration id='trans_loanSummary' >
+	<schemaIDs>trans_loanSummary</schemaIDs>
+	<styleURI>dds://DOMAIN=resource/xslt/loanSummary.xsl</styleURI>
+	<pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+	<xquery>expand.xml</xquery>
+	<pdf>false</pdf>
+</transformationConfiguration>
+		<transformationConfiguration id='trans_Notepad' >
+	<schemaIDs>trans_Notepad</schemaIDs>
+	<styleURI>dds://DOMAIN=resource/xslt/chainofcustody.xsl</styleURI>
+	<pipelineURI>dds://DOMAIN=resource/xproc/display.xpl</pipelineURI>
+	<xquery></xquery>
+	<pdf>false</pdf>
+</transformationConfiguration>
+		<transformationConfiguration id='trans_depositDetails' >
+	<schemaIDs>trans_depositDetails</schemaIDs>
+	<styleURI>dds://DOMAIN=resource/xslt/deposits.xsl</styleURI>
+	<pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+	<xquery>expand.xml</xquery>
+	<pdf>false</pdf>
+</transformationConfiguration>
+		<transformationConfiguration id='trans_paymentDetails' >
+	<schemaIDs>trans_paymentDetails</schemaIDs>
+	<styleURI>dds://DOMAIN=resource/xslt/payments.xsl</styleURI>
+	<pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+	<xquery>expand.xml</xquery>
+	<pdf>false</pdf>
+</transformationConfiguration>
+
+        <transformationConfiguration id='trans_auditLogDetails'>
+            <schemaIDs>trans_auditLogDetails</schemaIDs>
+            <styleURI>dds://DOMAIN=resource/xslt/auditLogDetails.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+            <xquery>expand.xml</xquery>
+            <pdf>false</pdf>
+        </transformationConfiguration>
+    </transformationConfigurations>
+
+    <searchConfigurations> 
+		<searchConfiguration id='searchLoanSummary' >
+    <xformName>SearchLoanSummary</xformName>
+    <xquery>
+        
+                import module namespace loanSummarySearch = 'loanSummarySearch' at '/APPLICATIONS/bmoempower/resources/xqueries/search_LoanSummary/search.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := loanSummarySearch:getLoanSummarySearchResults($currentuser, $first, $last, $input)
+              
+                return 
+			$results
+                
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>loanNumber</name>
+                <label>Loan #</label>
+                <whereclauseparameter>$elem/loanNumber</whereclauseparameter>
+                <fullText>false</fullText>
+            </searchField>
+            <searchField>
+                <name>lastName</name>
+                <label>Last Name</label>
+                <whereclauseparameter>$elem/borr_last</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>firstName</name>
+                <label>FirstName</label>
+                <whereclauseparameter>$elem/borr_first</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>SSN</name>
+                <label>SSN/ITIN</label>
+                <whereclauseparameter>$elem/SSN_ITIN</whereclauseparameter>
+                <fullText>false</fullText>
+            </searchField>
+            <searchField>
+                <name>originatorBanker</name>
+                <label>Originator/Banker</label>
+                <whereclauseparameter>$elem/intName</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+        <searchFieldRow>
+            <searchField>
+                <name>propStreetAddress</name>
+                <label>Property Street Address</label>
+                <whereclauseparameter>$elem/prop_addr</whereclauseparameter>
+                <fullText>false</fullText>
+            </searchField>
+            <searchField>
+                <name>propStreetAddress2</name>
+                <label>Property Street Address 2</label>
+                <whereclauseparameter>$elem/prop_addr2</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>propCity</name>
+                <label>Property City</label>
+                <whereclauseparameter>$elem/prop_city</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>propState</name>
+                <label>Property State</label>
+                <whereclauseparameter>$elem/prop_state</whereclauseparameter>
+                <fullText>false</fullText>
+            </searchField>
+            <searchField>
+                <name>propZip</name>
+                <label>Property Postal/Zip Code</label>
+                <whereclauseparameter>$elem/prop_zip</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+		<searchResultItem>
+			<name>loan_number</name>
+			<label>Loan #</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_first_name</name>
+			<label>Borrower First Name</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_middle_name</name>
+			<label>Borrower Middle Name</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_last_name</name>
+			<label>Borrower Last Name</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_suffix</name>
+			<label>Borrower Suffix</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>which_borrower</name>
+			<label>Which Borrower</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_ssn_or_tin</name>
+			<label>Borrower SSN/ITIN</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>borrower_birth_date</name>
+			<label>DOB (if available)</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>aka</name>
+			<label>AKA</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_addr</name>
+			<label>Property Street Address</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_addr2</name>
+			<label>Property Street Address 2</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_city</name>
+			<label>Property City</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_state</name>
+			<label>Property State</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>property_zip</name>
+			<label>Property Postal/Zip Code</label>
+		</searchResultItem>
+		<searchResultItem>
+			<name>int_name</name>
+			<label>Originator/Banker</label>
+		</searchResultItem>
+
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>
+		<searchConfiguration id='searchNotepad' >
+    <xformName>SearchNotepad</xformName>
+    <xquery>
+        
+                import module namespace notepadSearch = 'notepadSearch' at '/APPLICATIONS/bmoempower/resources/xqueries/search_notepad/search.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := notepadSearch:getNotepadSearchResults($currentuser, $first, $last, $input)
+                return $results
+                
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>loanNumber</name>
+                <label>Loan #</label>
+                <whereclauseparameter>$elem/loanNumber</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+		<searchResultItem>
+            <name>loan_number</name>
+            <label>Loan #</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>date</name>
+            <label>Date (MM/DD/YYYY)</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>initials</name>
+            <label>Initials</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>category</name>
+            <label>Category</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>comment</name>
+            <label>Comment</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>exp_notes</name>
+            <label>Exp Note</label>
+        </searchResultItem>
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>
+		<searchConfiguration id='searchDepositDetails' >
+    <xformName>searchDepositDetails</xformName>
+    <xquery>
+        
+                import module namespace depositDetailsSearch = 'depositDetailsSearch' at '/APPLICATIONS/bmoempower/resources/xqueries/search_depositDetails/search.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := depositDetailsSearch:getDepositDetailsResults($currentuser, $first, $last, $input)
+                return $results
+                
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>loanNumber</name>
+                <label>Loan #</label>
+                <whereclauseparameter>$elem/loanNumber</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+		<searchResultItem>
+            <name>loan_number</name>
+            <label>Loan #</label>
+        </searchResultItem>
+
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>
+		<searchConfiguration id='searchPaymentDetails' >
+    <xformName>searchPaymentDetails</xformName>
+    <xquery>
+        
+                import module namespace paymentDetailsSearch = 'paymentDetailsSearch' at '/APPLICATIONS/bmoempower/resources/xqueries/search_paymentDetails/search.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := paymentDetailsSearch:getPaymentDetailsResults($currentuser, $first, $last, $input)
+                return $results
+                
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>loanNumber</name>
+                <label>Loan #</label>
+                <whereclauseparameter>$elem/loanNumber</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+		<searchResultItem>
+            <name>loan_number</name>
+            <label>Loan #</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>last_name</name>
+            <label>Last Name</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>first_name</name>
+            <label>First Name</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>middle_name</name>
+            <label>Middle Name</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>ssn_or_tin</name>
+            <label>SSN/TIN</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>birth_date</name>
+            <label>Birth Date</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>gmi_monitor</name>
+            <label>GMI Monitor</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>ethnicity</name>
+            <label>Ethnicity</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>am_ind_ak</name>
+            <label>AM_IND_AK</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>asian</name>
+            <label>Asian</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>african_am</name>
+            <label>African Am.</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>hisp_pacisl</name>
+            <label>Hisp PACISL</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>white</name>
+            <label>White</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>not_prov</name>
+            <label>Not Prov</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>not_applic</name>
+            <label>Not Applic</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>sex</name>
+            <label>Sex</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>borr_total_income</name>
+            <label>Borr Total Income</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>app_efx_score</name>
+            <label>App EFX Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>app_tu_score</name>
+            <label>App TU Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>app_xpn_score</name>
+            <label>App XPN Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp_efx_score</name>
+            <label>CoApp EFX Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp_tu_score</name>
+            <label>CoApp TU Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp_xpn_score</name>
+            <label>CoApp XPN Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp2_efx_score</name>
+            <label>CoApp2 EFX Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp2_tu_score</name>
+            <label>CoApp2 TU Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp2_xpn_score</name>
+            <label>CoApp2 XPN Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp3_efx_score</name>
+            <label>CoApp3 EFX Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp3_tu_score</name>
+            <label>CoApp3 TU Score</label>
+        </searchResultItem>
+		<searchResultItem>
+            <name>coapp3_xpn_score</name>
+            <label>CoApp3 XPN Score</label>
+        </searchResultItem>
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>
+    </searchConfigurations>
+
+    <operationConfigurations>
+        <operationConfiguration id='add-hold'>
+            <xqueries>
+                <xquery>add-hold.xml</xquery>
+            </xqueries>
+            <buttonLabel>Hold</buttonLabel>
+            <dialogTitle>Add hold to $count item(s)</dialogTitle>
+            <xformName>AddHoldsForm</xformName>
+            <operationFields>
+                <operationField>
+                    <name>name</name>
+                    <label>Name</label>
+                </operationField>
+                <operationField>
+                    <name>description</name>
+                    <label>Description</label>
+                </operationField>
+                <operationField>
+                    <name>date</name>
+                    <label>Date</label>
+                    <type>date</type>
+                    <required>true</required>
+                </operationField>
+            </operationFields>
+        </operationConfiguration>
+        <operationConfiguration id='set-retention'>
+            <xqueries>
+                <xquery>set-retention.xml</xquery>
+            </xqueries>
+            <buttonLabel>Retention</buttonLabel>
+            <dialogTitle>Set retention on $count item(s)</dialogTitle>
+            <xformName>SetRetentionForm</xformName>
+            <operationFields>
+                <operationField>
+                    <name>date</name>
+                    <label>Date</label>
+                    <type>date</type>
+                    <required>true</required>
+                </operationField>
+                <operationField>
+                    <name>XQuery</name>
+                    <label>XQUERYNAME</label>
+                </operationField>
+            </operationFields>
+        </operationConfiguration>
+        <operationConfiguration id='remove-hold'>
+            <xqueries>
+                <xquery>remove-hold.xml</xquery>
+            </xqueries>
+            <buttonLabel>Remove Holds</buttonLabel>
+            <dialogTitle>Remove holds</dialogTitle>
+            <message>Are you sure you want to remove the selected $count hold(s)?</message>
+        </operationConfiguration>
+    </operationConfigurations>
+</content>

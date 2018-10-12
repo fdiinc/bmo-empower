@@ -1,0 +1,16 @@
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS7XXXXX
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS80XXXX
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS81XXXX
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS82XXXX
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS7XXXXX\700151_APPROVAL FORM_1.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS7XXXXX\7xxxxx_IMPORTANT DISCLOSURES RELATING TO YOUR LOAN_2.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS7XXXXX\7xxxxx_MORTGAGE SERVICING TRANSFER DISCLOSURE_1.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS7XXXXX\7xxxxx_MORTGAGE SERVICING TRANSFER DISCLOSURE_2.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS7XXXXX\7xxxxx_PRIVACY POLICY NOTICE_1.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS7XXXXX\7xxxxx_PRIVACY POLICY NOTICE_2.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS80XXXX\800151_APPROVAL FORM_1.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS80XXXX\8xxxxx_IMPORTANT DISCLOSURES RELATING TO YOUR LOAN_2.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS80XXXX\8xxxxx_MORTGAGE SERVICING TRANSFER DISCLOSURE_1.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS80XXXX\8xxxxx_MORTGAGE SERVICING TRANSFER DISCLOSURE_2.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS80XXXX\8xxxxx_PRIVACY POLICY NOTICE_1.PDF
+C:\Users\jmonaco\Documents\Projects\Flatirons Projects\BankOfMontreal\GLO\TestData\GLO_DOCS\LNS80XXXX\8xxxxx_PRIVACY POLICY NOTICE_2.PDF

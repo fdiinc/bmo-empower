@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="DEPPURCH"><RECORD-COUNT>12925</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><DEPPURCH-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></DEPPURCH-TYPE><DEPPURCH-TYPE><NAME>DEP_VALUE</NAME><COLNO>2</COLNO><DATATYPE>float</DATATYPE><JDBC-DATATYPE CODE="8">DOUBLE</JDBC-DATATYPE></DEPPURCH-TYPE><DEPPURCH-TYPE><NAME>DEP_HELDBY</NAME><COLNO>3</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></DEPPURCH-TYPE></DATATYPES><KEYS><DEPPURCH-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK__DEPPURCH__7E8CC4B1</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></DEPPURCH-KEY></KEYS><INDEXES><DEPPURCH-INDEX><NAME>PK__DEPPURCH__7E8CC4B1</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></DEPPURCH-INDEX></INDEXES></TABLEMETADATA>

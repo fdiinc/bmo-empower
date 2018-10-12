@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<p:declare-step type="ext:xslt2Step" xmlns:p="http://www.w3.org/ns/xproc" xmlns:ext="http://flatironssolutions.com/decomm/xproc" version="1.0"><p:input port="source" primary="true" sequence="true"/><p:input port="stylesheet" primary="false" sequence="false"/><p:output port="result" primary="true" sequence="true"/><p:option name="stdout" select="'true'"/><p:option name="stderr" select="'false'"/></p:declare-step>

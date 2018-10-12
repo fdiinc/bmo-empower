@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<p:declare-step type="ext:csv" xmlns:p="http://www.w3.org/ns/xproc" xmlns:ext="http://flatironssolutions.com/decomm/xproc" version="1.0"><p:input port="source" sequence="true" primary="true"/><p:input port="stylesheet" sequence="true" kind="document"/><p:output port="result" sequence="true"/><p:option name="stdout" select="'true'"/><p:option name="stderr" select="'false'"/><p:option name="ss" select="'null'"/><p:option name="href" select="'null'"/></p:declare-step>

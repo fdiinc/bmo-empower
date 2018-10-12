@@ -1,0 +1,13 @@
+<xquery xmlns="http://www.emc.com/documentum/xml/dds">
+    <expression><![CDATA[
+
+        import module namespace paymentDetails = 'paymentDetails' at '/APPLICATIONS/bmoempower/resources/xqueries/trans_paymentDetails/paymentDetails.xqy';
+
+        declare variable $loan_number as xs:string external;
+
+        paymentDetails:getPaymentDetailsResults($loan_number)
+
+
+
+    ]]></expression> 
+</xquery>

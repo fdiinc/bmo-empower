@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="ESS_STIPSPARTY"><RECORD-COUNT>2</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><ESS_STIPSPARTY-TYPE><NAME>RESPPARTY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></ESS_STIPSPARTY-TYPE><ESS_STIPSPARTY-TYPE><NAME>LASTMOD</NAME><COLNO>2</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></ESS_STIPSPARTY-TYPE></DATATYPES><KEYS><ESS_STIPSPARTY-KEY><NAME>RESPPARTY</NAME><CONSTRAINT_NAME>PK_ESS_STUPSPARTY</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></ESS_STIPSPARTY-KEY></KEYS><INDEXES><ESS_STIPSPARTY-INDEX><NAME>PK_ESS_STUPSPARTY</NAME><COLUMN_NAME>RESPPARTY</COLUMN_NAME></ESS_STIPSPARTY-INDEX></INDEXES></TABLEMETADATA>

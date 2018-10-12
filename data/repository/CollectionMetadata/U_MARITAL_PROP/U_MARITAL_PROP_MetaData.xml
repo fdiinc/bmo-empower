@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_MARITAL_PROP"><RECORD-COUNT>193</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_MARITAL_PROP-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_MARITAL_PROP-TYPE><U_MARITAL_PROP-TYPE><NAME>WI_MAR_PROP_FLG</NAME><COLNO>2</COLNO><DATATYPE>char(1)</DATATYPE><JDBC-DATATYPE CODE="1">CHAR</JDBC-DATATYPE></U_MARITAL_PROP-TYPE><U_MARITAL_PROP-TYPE><NAME>WI_NTC_TO_BORR_PRINTDT</NAME><COLNO>3</COLNO><DATATYPE>smalldatetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></U_MARITAL_PROP-TYPE></DATATYPES><KEYS><U_MARITAL_PROP-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK_U_MARITAL_PROP</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_MARITAL_PROP-KEY></KEYS><INDEXES><U_MARITAL_PROP-INDEX><NAME>PK_U_MARITAL_PROP</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></U_MARITAL_PROP-INDEX></INDEXES></TABLEMETADATA>

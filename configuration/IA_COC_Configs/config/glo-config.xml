@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appconfig id="bmoglo">
+  <bootstrap url="xhive://<HOST>:1235#glo" />
+  <database name="bmoglo" password="<PW>" />
+  <datasets>
+    <dataset name="" />
+  </datasets>
+</appconfig>

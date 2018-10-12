@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="DBO" TABLENAME="TBLCLOSINGMESSAGE"><RECORD-COUNT>1</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><TBLCLOSINGMESSAGE-TYPE><NAME>MSGUPDATED</NAME><COLNO>1</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></TBLCLOSINGMESSAGE-TYPE><TBLCLOSINGMESSAGE-TYPE><NAME>CLOSINGMSG</NAME><COLNO>2</COLNO><DATATYPE>varchar(5000)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></TBLCLOSINGMESSAGE-TYPE></DATATYPES><KEYS><TBLCLOSINGMESSAGE-KEY><NAME>MsgUpdated</NAME><CONSTRAINT_NAME>PK_tblClosingMessage</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></TBLCLOSINGMESSAGE-KEY></KEYS><INDEXES><TBLCLOSINGMESSAGE-INDEX><NAME>PK_tblClosingMessage</NAME><COLUMN_NAME>MsgUpdated</COLUMN_NAME></TBLCLOSINGMESSAGE-INDEX></INDEXES></TABLEMETADATA>

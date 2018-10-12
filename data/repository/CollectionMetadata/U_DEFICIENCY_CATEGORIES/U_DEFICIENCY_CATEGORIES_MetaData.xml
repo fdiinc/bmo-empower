@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_DEFICIENCY_CATEGORIES"><RECORD-COUNT>10</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_DEFICIENCY_CATEGORIES-TYPE><NAME>CATEGORY</NAME><COLNO>1</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_DEFICIENCY_CATEGORIES-TYPE></DATATYPES><KEYS><U_DEFICIENCY_CATEGORIES-KEY><NAME>CATEGORY</NAME><CONSTRAINT_NAME>PK_U_DEFICIENCY_CATEGORIES</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_DEFICIENCY_CATEGORIES-KEY></KEYS><INDEXES><U_DEFICIENCY_CATEGORIES-INDEX><NAME>PK_U_DEFICIENCY_CATEGORIES</NAME><COLUMN_NAME>CATEGORY</COLUMN_NAME></U_DEFICIENCY_CATEGORIES-INDEX></INDEXES></TABLEMETADATA>

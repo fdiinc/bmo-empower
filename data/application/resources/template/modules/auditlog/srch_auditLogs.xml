@@ -1,0 +1,91 @@
+<searchConfiguration id="searchAuditLogs">
+    <xformName>SearchAuditLogs</xformName>
+    <xquery>
+        <![CDATA[
+                import module namespace auditlog = 'auditlog' at '/APPLICATIONS/bmoempower/resources/xqueries/commonModules/auditlog.xqy';
+                (: uncomment these next 3 lines to turn on xquery debug :)
+                (:
+                declare option xhive:index-debug 'true';
+                declare option xhive:queryplan-debug 'true';
+                declare option xhive:pathexpr-debug 'true';
+                :)
+                (:
+                declare option xhive:optimizer-debug 'true';
+                :)
+                
+                declare variable $currentuser as xs:string external;
+                declare variable $first as xs:string external;
+                declare variable $last as xs:string external;
+                declare variable $input as xs:string external;
+                
+                let $results := auditlog:getAuditLogSearchResults($currentuser, $first, $last, $input)
+                return $results
+                ]]>
+    </xquery>
+    
+    <searchFields>
+        <searchFieldRow>
+            <searchField>
+                <name>userId</name>
+                <label>User ID</label>
+                <whereclauseparameter>$elem/user</whereclauseparameter>
+                <fullText>true</fullText>
+            </searchField>
+            <searchField>
+                <name>fromDate</name>
+                <label>From Date</label>
+                <type>date</type>
+                <whereclauseparameter>$elem/time</whereclauseparameter>
+                <operator><![CDATA[>=]]></operator>
+            </searchField>
+            <searchField>
+                <name>toDate</name>
+                <label>To Date</label>
+                <type>date</type>
+                <whereclauseparameter>$elem/time</whereclauseparameter>
+                <operator><![CDATA[<=]]></operator>
+            </searchField>
+            <searchField>
+                <name>filterAudits</name>
+                <label>Filter Audit Lookups</label>
+                <flexiblecode>%ARG%</flexiblecode>
+                <options type="select">
+                    <option>
+                        <name>all</name>
+                        <label>All</label>
+                    </option>
+                    <option>
+                        <name>archive</name>
+                        <label>Archive</label>
+                    </option>
+                    <option>
+                        <name>login</name>
+                        <label>Login</label>
+                    </option>
+                    <option>
+                        <name>audit</name>
+                        <label>Audit</label>
+                    </option>
+                </options>
+            </searchField>
+        </searchFieldRow>
+    </searchFields>
+    <searchResultItems>
+        <searchResultItem>
+            <name>user</name>
+            <label>Accessed by User</label>
+        </searchResultItem>
+        <searchResultItem>
+            <name>searchConfiguration</name>
+            <label>Audit Log Type</label>
+        </searchResultItem>
+        <searchResultItem>
+            <name>eventTime</name>
+            <label>Time</label>
+        </searchResultItem>
+    </searchResultItems>
+    
+    <nestedSearches>
+    </nestedSearches>
+    <crpWidth>800</crpWidth>
+</searchConfiguration>

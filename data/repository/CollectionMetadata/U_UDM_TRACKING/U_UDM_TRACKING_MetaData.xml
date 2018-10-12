@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_UDM_TRACKING"><RECORD-COUNT>3850</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_UDM_TRACKING-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></U_UDM_TRACKING-TYPE><U_UDM_TRACKING-TYPE><NAME>UDM_SENT</NAME><COLNO>2</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></U_UDM_TRACKING-TYPE><U_UDM_TRACKING-TYPE><NAME>UDM_DEACTIVATED</NAME><COLNO>3</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></U_UDM_TRACKING-TYPE></DATATYPES><KEYS><U_UDM_TRACKING-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK_U_UDM_TRACKING</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_UDM_TRACKING-KEY></KEYS><INDEXES><U_UDM_TRACKING-INDEX><NAME>PK_U_UDM_TRACKING</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></U_UDM_TRACKING-INDEX></INDEXES></TABLEMETADATA>

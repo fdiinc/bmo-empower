@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="JOBSTATUS"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><JOBSTATUS-TYPE><NAME>STATNUM</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></JOBSTATUS-TYPE><JOBSTATUS-TYPE><NAME>STATDESC</NAME><COLNO>2</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></JOBSTATUS-TYPE></DATATYPES><KEYS><JOBSTATUS-KEY><NAME>STATNUM</NAME><CONSTRAINT_NAME>PK_JOBSTATUS</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></JOBSTATUS-KEY></KEYS><INDEXES><JOBSTATUS-INDEX><NAME>PK_JOBSTATUS</NAME><COLUMN_NAME>STATNUM</COLUMN_NAME></JOBSTATUS-INDEX></INDEXES></TABLEMETADATA>

@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="E_REASONS"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><E_REASONS-TYPE><NAME>REASON</NAME><COLNO>1</COLNO><DATATYPE>varchar(30)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></E_REASONS-TYPE><E_REASONS-TYPE><NAME>LASTMOD</NAME><COLNO>2</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></E_REASONS-TYPE><E_REASONS-TYPE><NAME>ISACTIVE</NAME><COLNO>3</COLNO><DATATYPE>char(1)</DATATYPE><JDBC-DATATYPE CODE="1">CHAR</JDBC-DATATYPE></E_REASONS-TYPE></DATATYPES><KEYS><E_REASONS-KEY><NAME>REASON</NAME><CONSTRAINT_NAME>PK__E_REASONS__23F3538A</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></E_REASONS-KEY></KEYS><INDEXES><E_REASONS-INDEX><NAME>PK__E_REASONS__23F3538A</NAME><COLUMN_NAME>REASON</COLUMN_NAME></E_REASONS-INDEX></INDEXES></TABLEMETADATA>

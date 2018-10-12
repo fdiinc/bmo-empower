@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="E_EXPRCATS"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><E_EXPRCATS-TYPE><NAME>CATEGORY</NAME><COLNO>1</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></E_EXPRCATS-TYPE><E_EXPRCATS-TYPE><NAME>LASTMOD</NAME><COLNO>2</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></E_EXPRCATS-TYPE><E_EXPRCATS-TYPE><NAME>BRANCHID</NAME><COLNO>3</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></E_EXPRCATS-TYPE></DATATYPES><KEYS><E_EXPRCATS-KEY><NAME>CATEGORY</NAME><CONSTRAINT_NAME>PK_E_EXPRCATS</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></E_EXPRCATS-KEY></KEYS><INDEXES><E_EXPRCATS-INDEX><NAME>PK_E_EXPRCATS</NAME><COLUMN_NAME>CATEGORY</COLUMN_NAME></E_EXPRCATS-INDEX></INDEXES></TABLEMETADATA>

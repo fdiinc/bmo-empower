@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="ESS_GENERATORS"><RECORD-COUNT>31</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><ESS_GENERATORS-TYPE><NAME>GEN_NAME</NAME><COLNO>1</COLNO><DATATYPE>varchar(30)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></ESS_GENERATORS-TYPE><ESS_GENERATORS-TYPE><NAME>GEN_VALUE</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></ESS_GENERATORS-TYPE></DATATYPES><KEYS><ESS_GENERATORS-KEY><NAME>GEN_NAME</NAME><CONSTRAINT_NAME>PK__ESS_GENERATORS__27C3E46E</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></ESS_GENERATORS-KEY></KEYS><INDEXES><ESS_GENERATORS-INDEX><NAME>PK__ESS_GENERATORS__27C3E46E</NAME><COLUMN_NAME>GEN_NAME</COLUMN_NAME></ESS_GENERATORS-INDEX></INDEXES></TABLEMETADATA>

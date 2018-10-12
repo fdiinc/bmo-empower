@@ -1,0 +1,7 @@
+<transformationConfiguration id="trans_loanSummary" >
+	<schemaIDs>trans_loanSummary</schemaIDs>
+	<styleURI>dds://DOMAIN=resource/xslt/loanSummary.xsl</styleURI>
+	<pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+	<xquery>expand.xml</xquery>
+	<pdf>false</pdf>
+</transformationConfiguration>

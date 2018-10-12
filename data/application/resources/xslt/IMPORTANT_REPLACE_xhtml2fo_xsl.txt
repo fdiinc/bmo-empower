@@ -1,0 +1,1 @@
+The xhtml2fo.xsl needs to also be replaced in a merged project along with the project and common folders.   Effects of not doing this replacement are the lack of customized headers and footers on the pdf export

@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_AUTOSTIPRETAILAPPLY"><RECORD-COUNT>270</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_AUTOSTIPRETAILAPPLY-TYPE><NAME>STIPID</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_AUTOSTIPRETAILAPPLY-TYPE><U_AUTOSTIPRETAILAPPLY-TYPE><NAME>ACTGROUPID</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_AUTOSTIPRETAILAPPLY-TYPE></DATATYPES><KEYS><U_AUTOSTIPRETAILAPPLY-KEY><NAME>StipId</NAME><CONSTRAINT_NAME>PK_U_AutoStipRetailApply</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_AUTOSTIPRETAILAPPLY-KEY><U_AUTOSTIPRETAILAPPLY-KEY><NAME>ActGroupId</NAME><CONSTRAINT_NAME>PK_U_AutoStipRetailApply</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_AUTOSTIPRETAILAPPLY-KEY></KEYS><INDEXES><U_AUTOSTIPRETAILAPPLY-INDEX><NAME>PK_U_AutoStipRetailApply</NAME><COLUMN_NAME>StipId, ActGroupId</COLUMN_NAME></U_AUTOSTIPRETAILAPPLY-INDEX></INDEXES></TABLEMETADATA>

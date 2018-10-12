@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_QRITEMSLEVELSXREFS"><RECORD-COUNT>371</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_QRITEMSLEVELSXREFS-TYPE><NAME>LEVELID</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_QRITEMSLEVELSXREFS-TYPE><U_QRITEMSLEVELSXREFS-TYPE><NAME>ITEMID</NAME><COLNO>2</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_QRITEMSLEVELSXREFS-TYPE><U_QRITEMSLEVELSXREFS-TYPE><NAME>OPTIONDEFAULT</NAME><COLNO>3</COLNO><DATATYPE>smallint</DATATYPE><JDBC-DATATYPE CODE="5">SMALLINT</JDBC-DATATYPE></U_QRITEMSLEVELSXREFS-TYPE></DATATYPES><KEYS/><INDEXES/></TABLEMETADATA>

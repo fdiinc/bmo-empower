@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_SYNC_COMBO"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_SYNC_COMBO-TYPE><NAME>DBNUM</NAME><COLNO>1</COLNO><DATATYPE>int</DATATYPE><JDBC-DATATYPE CODE="4">INTEGER</JDBC-DATATYPE></U_SYNC_COMBO-TYPE></DATATYPES><KEYS><U_SYNC_COMBO-KEY><NAME>DBNUM</NAME><CONSTRAINT_NAME>PK_U_SYNC_COMBO</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_SYNC_COMBO-KEY></KEYS><INDEXES><U_SYNC_COMBO-INDEX><NAME>PK_U_SYNC_COMBO</NAME><COLUMN_NAME>DBNUM</COLUMN_NAME></U_SYNC_COMBO-INDEX></INDEXES></TABLEMETADATA>

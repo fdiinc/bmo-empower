@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="U_APR_LIMIT_FRB"><RECORD-COUNT>528</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><U_APR_LIMIT_FRB-TYPE><NAME>DATE_RCVD</NAME><COLNO>1</COLNO><DATATYPE>datetime</DATATYPE><JDBC-DATATYPE CODE="93">TIMESTAMP</JDBC-DATATYPE></U_APR_LIMIT_FRB-TYPE><U_APR_LIMIT_FRB-TYPE><NAME>PUBLISHED_RATE</NAME><COLNO>2</COLNO><DATATYPE>float</DATATYPE><JDBC-DATATYPE CODE="8">DOUBLE</JDBC-DATATYPE></U_APR_LIMIT_FRB-TYPE></DATATYPES><KEYS><U_APR_LIMIT_FRB-KEY><NAME>DATE_RCVD</NAME><CONSTRAINT_NAME>PK_U_APR_LIMIT_FRB</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></U_APR_LIMIT_FRB-KEY></KEYS><INDEXES><U_APR_LIMIT_FRB-INDEX><NAME>PK_U_APR_LIMIT_FRB</NAME><COLUMN_NAME>DATE_RCVD</COLUMN_NAME></U_APR_LIMIT_FRB-INDEX></INDEXES></TABLEMETADATA>

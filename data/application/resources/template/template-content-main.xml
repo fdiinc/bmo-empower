@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<content xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../xsd/template-content.xsd">
+    <dataset>
+        <name>bmoempower</name>
+    </dataset>
+    <dataset>
+        <name>metadata</name>
+    </dataset>
+
+    <hierarchy>
+        <title>bmoempower</title>
+        <node>
+            <id>bmoempower</id>
+            <label>InfoArchive</label>
+            <icon>allapplications16</icon>
+            <chainOfCustody>false</chainOfCustody>
+            <contentViewSettings>
+                <contentViewSetting refid="trans_loanSummary" />
+                <contentViewSetting refid="trans_Notepad" />
+                <contentViewSetting refid="trans_depositDetails" />
+               <contentViewSetting refid="trans_paymentDetails" />
+                <contentViewSetting refid="trans_auditLogDetails" />
+            </contentViewSettings>
+
+            <searchSettings>
+                <searchSetting name="Loan Summary" refid="searchLoanSummary" />
+                <searchSetting name="Notepad" refid="searchNotepad" />
+                <searchSetting name="Deposit Details" refid="searchDepositDetails" />
+                <searchSetting name="Payment Details" refid="searchPaymentDetails" />
+ 
+                <!-- <searchSetting name="Audit Logs" refid="searchAuditLogs"/> -->
+            </searchSettings>
+        </node>
+    </hierarchy>
+
+    <transformationConfigurations>
+        <transformationConfiguration id="displayDefault">
+            <schemaIDs />
+            <styleURI>dds://DOMAIN=resource/xslt/xml-verbatim.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+            <xquery>expand.xml</xquery>
+            <pdf>false</pdf>
+        </transformationConfiguration>
+        <transformationConfiguration id="displayURIDefault">
+            <schemaIDs />
+            <styleURI>dds://DOMAIN=resource/xslt/xml-verbatim.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/display.xpl</pipelineURI>
+            <xquery />
+            <pdf>false</pdf>
+        </transformationConfiguration>
+        <transformationConfiguration id="empty">
+            <schemaIDs>empty.xsd</schemaIDs>
+            <styleURI>dds://DOMAIN=resource/xslt/empty.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/display.xpl</pipelineURI>
+            <xquery />
+            <pdf>false</pdf>
+        </transformationConfiguration>
+        <transformationConfiguration id="displayChainOfCustodyInfo">
+            <schemaIDs>chainofcustody.xsd</schemaIDs>
+            <styleURI>dds://DOMAIN=resource/xslt/chainofcustody.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/display.xpl</pipelineURI>
+            <xquery />
+            <pdf>false</pdf>
+        </transformationConfiguration>
+
+		<xi:include href='modules/loanSummary/trans_loanSummary.xml' />
+		<xi:include href='modules/notepad/trans_notepad.xml' />
+		<xi:include href='modules/depositDetails/trans_depositDetails.xml' />
+		<xi:include href='modules/paymentDetails/trans_paymentDetails.xml' />
+
+        <transformationConfiguration id="trans_auditLogDetails">
+            <schemaIDs>trans_auditLogDetails</schemaIDs>
+            <styleURI>dds://DOMAIN=resource/xslt/auditLogDetails.xsl</styleURI>
+            <pipelineURI>dds://DOMAIN=resource/xproc/displayxqueryresult.xpl</pipelineURI>
+            <xquery>expand.xml</xquery>
+            <pdf>false</pdf>
+        </transformationConfiguration>
+    </transformationConfigurations>
+
+    <searchConfigurations> 
+		<xi:include href='modules/loanSummary/srch_loanSummary.xml' />
+		<xi:include href='modules/notepad/srch_notepad.xml' />
+		<xi:include href='modules/depositDetails/srch_depositDetails.xml' />
+		<xi:include href='modules/paymentDetails/srch_paymentDetails.xml' />
+    </searchConfigurations>
+
+    <operationConfigurations>
+        <operationConfiguration id="add-hold">
+            <xqueries>
+                <xquery>add-hold.xml</xquery>
+            </xqueries>
+            <buttonLabel>Hold</buttonLabel>
+            <dialogTitle>Add hold to $count item(s)</dialogTitle>
+            <xformName>AddHoldsForm</xformName>
+            <operationFields>
+                <operationField>
+                    <name>name</name>
+                    <label>Name</label>
+                </operationField>
+                <operationField>
+                    <name>description</name>
+                    <label>Description</label>
+                </operationField>
+                <operationField>
+                    <name>date</name>
+                    <label>Date</label>
+                    <type>date</type>
+                    <required>true</required>
+                </operationField>
+            </operationFields>
+        </operationConfiguration>
+        <operationConfiguration id="set-retention">
+            <xqueries>
+                <xquery>set-retention.xml</xquery>
+            </xqueries>
+            <buttonLabel>Retention</buttonLabel>
+            <dialogTitle>Set retention on $count item(s)</dialogTitle>
+            <xformName>SetRetentionForm</xformName>
+            <operationFields>
+                <operationField>
+                    <name>date</name>
+                    <label>Date</label>
+                    <type>date</type>
+                    <required>true</required>
+                </operationField>
+                <operationField>
+                    <name>XQuery</name>
+                    <label>XQUERYNAME</label>
+                </operationField>
+            </operationFields>
+        </operationConfiguration>
+        <operationConfiguration id="remove-hold">
+            <xqueries>
+                <xquery>remove-hold.xml</xquery>
+            </xqueries>
+            <buttonLabel>Remove Holds</buttonLabel>
+            <dialogTitle>Remove holds</dialogTitle>
+            <message>Are you sure you want to remove the selected $count hold(s)?</message>
+        </operationConfiguration>
+    </operationConfigurations>
+</content>

@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="GOVTDOCS"><RECORD-COUNT>269409</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><GOVTDOCS-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></GOVTDOCS-TYPE><GOVTDOCS-TYPE><NAME>VALOANNUM</NAME><COLNO>2</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></GOVTDOCS-TYPE><GOVTDOCS-TYPE><NAME>LENDERNAME</NAME><COLNO>3</COLNO><DATATYPE>varchar(40)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></GOVTDOCS-TYPE></DATATYPES><KEYS><GOVTDOCS-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK__GOVTDOCS__4707859D</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></GOVTDOCS-KEY></KEYS><INDEXES><GOVTDOCS-INDEX><NAME>PK__GOVTDOCS__4707859D</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></GOVTDOCS-INDEX></INDEXES></TABLEMETADATA>

@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="DOCMEMO4"><RECORD-COUNT>0</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><DOCMEMO4-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></DOCMEMO4-TYPE><DOCMEMO4-TYPE><NAME>PURCHASEMONEY</NAME><COLNO>2</COLNO><DATATYPE>text(2147483647)</DATATYPE><JDBC-DATATYPE CODE="2005">CLOB</JDBC-DATATYPE></DOCMEMO4-TYPE></DATATYPES><KEYS><DOCMEMO4-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK__DOCMEMO4__07220AB2</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></DOCMEMO4-KEY></KEYS><INDEXES><DOCMEMO4-INDEX><NAME>PK__DOCMEMO4__07220AB2</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></DOCMEMO4-INDEX></INDEXES></TABLEMETADATA>

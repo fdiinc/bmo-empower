@@ -1,0 +1,16 @@
+<TABLEMETADATA SCHEMANAME="EMPOWER" TABLENAME="CREDRPTS"><RECORD-COUNT>240769</RECORD-COUNT><DATATYPES><!-- 
+						Legend
+			
+			(Java Database Connectivity (JDBC) is the communication standard used for all databases)
+			
+			DATATYPE
+				[database column type] + [data length]
+				
+				Varies by original database and can be non-standard.
+				
+				Some databases embed a length in the type name, which can differ from actual reported data length
+					e.g. for Oracle, TIMESTAMP(6)(11)
+			
+			JDBC-DATATYPE
+				Standard column type, according to JDBC. Determines extraction handling.
+		--><CREDRPTS-TYPE><NAME>LNKEY</NAME><COLNO>1</COLNO><DATATYPE>varchar(20)</DATATYPE><JDBC-DATATYPE CODE="12">VARCHAR</JDBC-DATATYPE></CREDRPTS-TYPE><CREDRPTS-TYPE><NAME>REPORT</NAME><COLNO>2</COLNO><DATATYPE>image(2147483647)</DATATYPE><JDBC-DATATYPE CODE="2004">BLOB</JDBC-DATATYPE></CREDRPTS-TYPE></DATATYPES><KEYS><CREDRPTS-KEY><NAME>LNKEY</NAME><CONSTRAINT_NAME>PK__CREDRPTS__6D6238AF</CONSTRAINT_NAME><TYPE>Primary Key</TYPE></CREDRPTS-KEY></KEYS><INDEXES><CREDRPTS-INDEX><NAME>PK__CREDRPTS__6D6238AF</NAME><COLUMN_NAME>LNKEY</COLUMN_NAME></CREDRPTS-INDEX></INDEXES></TABLEMETADATA>
